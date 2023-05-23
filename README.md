@@ -1,8 +1,9 @@
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fleerob%2Fleerob.io)
 
-# leerob.io
+# hasanurrahman.com
 
-- **Framework**: [Next.js](https://nextjs.org/)
+This is my personal website inspired from [leerob.io](https://leerob.io/)
+
+- **Framework**: [Next.js 13](https://nextjs.org/)
 - **Database**: [PlanetScale](https://planetscale.com)
 - **Authentication**: [NextAuth.js](https://next-auth.js.org)
 - **Deployment**: [Vercel](https://vercel.com)
@@ -17,23 +18,3 @@ In early 2023, I refactored my site to use the new `app/` directory in Next.js 1
 - [ ] Move redirects to end of routing stack (not in `next.config.js`)
 - [ ] Use new support for API routes in `app` (not ready yet)
 - [ ] Improved scroll position support in `app/` (not implemented yet)
-
-You can learn more about the `app/` directory [here](https://beta.nextjs.org/docs).
-
-## Running Locally
-
-This application requires Node.js v16.13+.
-
-```bash
-git clone https://github.com/leerob/leerob.io.git
-cd leerob.io
-pnpm install
-pnpm run setup # Remove all of my personal information
-pnpm dev
-```
-
-Create a `.env` file similar to [`.env.example`](https://github.com/leerob/leerob.io/blob/main/.env.example).
-
-## Cloning / Forking
-
-Please review the [license](https://github.com/leerob/leerob.io/blob/main/LICENSE.txt) and remove all of my personal information (resume, blog posts, images, etc.) by running `pnpm run setup`.

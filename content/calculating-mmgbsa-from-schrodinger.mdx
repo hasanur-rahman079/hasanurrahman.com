@@ -11,10 +11,11 @@ Go to the folder that have the `out.cms` trajectory file. You can check the exis
 Then run the script-
 
 where:-
-xx-out.cms=simulaiton out file >
-Y=GPU
-YY=The simulation frames gap
-Z=Number of prime subjobs to create (Make sure Z>Y, or Z=Y)
+
+1. xx-out.cms=simulaiton out file >
+2. Y=GPU
+3. YY=The simulation frames gap
+4. Z=Number of prime subjobs to create (Make sure Z>Y, or Z=Y)
 
 ```bash
 $SCHRODINGER/run thermal_mmgbsa.py xx-out.cms -HOST 'localhost:Y' -step_size YY -NJOBS Z

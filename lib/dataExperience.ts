@@ -163,7 +163,7 @@ const experiencesData = {
     {
       id: uuidv4(),
       img: ibsLogo,
-      title: "Managing Team Leader",
+      title: "Team Leader",
       institute: "International Biotech Symposium 2021",
       weblink:
         "https://www.cobt.org/events/international-biotech-symposium-2021/",

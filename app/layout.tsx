@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 // import localFont from "next/font/local";
 import Sidebar from "../components/sidebar";
 import { Analytics } from "@vercel/analytics/react";
+import Script from "next/script";
 
 // const kaisei = localFont({
 //   src: "../public/fonts/kaisei-tokumin-latin-700-normal.woff2",
@@ -19,7 +20,6 @@ const chivo = Chivo({
   variable: "--font-chivo",
   display: "swap",
 });
-
 
 export const metadata: Metadata = {
   title: {
@@ -84,6 +84,11 @@ export default function RootLayout({
         <main className="flex-auto min-w-0 mt-6 md:mt-0 flex flex-col px-2 md:px-0">
           {children}
           <Analytics />
+          <Script
+            async
+            src="https://analytics.umami.is/script.js"
+            data-website-id="85df9205-00a4-4cd4-8de0-2e22c418b2c8"
+          />
         </main>
       </body>
     </html>

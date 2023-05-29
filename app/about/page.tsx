@@ -65,7 +65,7 @@ export default function AboutPage() {
         className="flex items-center hover:text-neutral-700 dark:hover:text-neutral-200 transition-all mb-8"
         rel="noopener noreferrer"
         target="_blank"
-        href="/hasanur_cv.pdf"
+        href="/cv_hasanur.pdf"
       >
         <HiOutlineArrowDownTray />
         <p className="h-7 ml-1">download my academic resume</p>

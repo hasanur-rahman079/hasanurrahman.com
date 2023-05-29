@@ -5,7 +5,6 @@ import type { Metadata } from "next";
 // import localFont from "next/font/local";
 import Sidebar from "../components/sidebar";
 import { Analytics } from "@vercel/analytics/react";
-import Script from "next/script";
 
 // const kaisei = localFont({
 //   src: "../public/fonts/kaisei-tokumin-latin-700-normal.woff2",
@@ -60,10 +59,10 @@ export const metadata: Metadata = {
   icons: {
     shortcut: "/favicon.ico",
   },
-  // verification: {
-  //   google: "eZSdmzAXlLkKhNJzfgwDqWORghxnJ8qR9_CHdAh5-xw",
-  //   yandex: "14d2e73487fa6c71",
-  // },
+  verification: {
+    // google: "eZSdmzAXlLkKhNJzfgwDqWORghxnJ8qR9_CHdAh5-xw",
+    yandex: "137AE967403A67845F3F1C204E322FC8",
+  },
 };
 
 export default function RootLayout({
@@ -84,11 +83,6 @@ export default function RootLayout({
         <main className="flex-auto min-w-0 mt-6 md:mt-0 flex flex-col px-2 md:px-0">
           {children}
           <Analytics />
-          <Script
-            async
-            src="https://analytics.umami.is/script.js"
-            data-website-id="85df9205-00a4-4cd4-8de0-2e22c418b2c8"
-          />
         </main>
       </body>
     </html>

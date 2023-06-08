@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { fetchOrcidAPI } from "../../lib/orcidApi";
+import { fetchAuthorsAPI } from "../../lib/orcidApi";
 
 interface Contributor {
   work: {
@@ -25,12 +25,14 @@ export default function PubAuthors({ pcode }: PubAuthorsProps) {
 
   React.useEffect(() => {
     async function getContributors() {
-      const data = await fetchOrcidAPI(
+      const data = await fetchAuthorsAPI(
         `https://pub.orcid.org/v3.0/0000-0001-9238-3149/works/${pcode}`
       );
-      setContributors(data?.bulk || []); // Set empty array as fallback value
+
+      setContributors(data?.bulk || []);
       setLoading(false);
     }
+
     getContributors();
   }, [pcode]);
 

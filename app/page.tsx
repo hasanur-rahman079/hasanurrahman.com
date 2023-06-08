@@ -51,7 +51,7 @@ export default async function HomePage() {
             className="flex items-center gap-2"
           >
             <SiResearchgate />
-            {` 8,986 reads on researchgate`}
+            {` 9,169 reads on researchgate`}
           </a>
 
           <Link href="/blog" className="flex items-center">

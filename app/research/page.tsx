@@ -24,14 +24,20 @@ export default async function ResearchPage() {
           </span>
         </a>
         ,
-        <a href="https://scholar.google.com/citations?hl=en&authuser=1&user=l2q048wAAAAJ" target="_blank">
+        <a
+          href="https://scholar.google.com/citations?hl=en&authuser=1&user=l2q048wAAAAJ"
+          target="_blank"
+        >
           <span className="flex items-center font-semibold">
             google scholar
             <BsArrowUpRight />
           </span>
         </a>
         and
-        <a href="https://www.researchgate.net/profile/Md-Rahman-262" target="_blank">
+        <a
+          href="https://www.researchgate.net/profile/Md-Rahman-262"
+          target="_blank"
+        >
           <span className="flex items-center font-semibold">
             researchGate
             <BsArrowUpRight />

@@ -21,6 +21,7 @@ function ExpCard({
   weblink,
   time,
   focus,
+  info,
 }: any) {
   return (
     <div id={id} className="bg-neutral-100 dark:bg-neutral-800 p-3 rounded">
@@ -36,7 +37,11 @@ function ExpCard({
       </h5>
       <p className="my-0 text-sm">{location}</p>
       <p className="my-2 text-sm">{time}</p>
-      <p className="my-0 text-sm">Responsibilities: {focus}</p>
+      {info ? (
+        <p className="my-0 text-sm">{info}</p>
+      ) : (
+        <p className="my-0 text-sm">Responsibilities: {focus}</p>
+      )}
     </div>
   );
 }
@@ -44,12 +49,11 @@ function ExpCard({
 export default async function Affiliations() {
   const data = await expData();
 
-  // const sortedResearch = data.research.sort((a: any, b: any) => {
-  //   return (
-  //     new Date(Date.parse(a.time)).getTime() -
-  //     new Date(Date.parse(b.time)).getTime()
-  //   );
-  // });
+  const sortedEducation = data.education.sort((a: any, b: any) => {
+    const endDateA = moment(a.time.split(" – ")[1], "D MMM YYYY").toDate();
+    const endDateB = moment(b.time.split(" – ")[1], "D MMM YYYY").toDate();
+    return endDateB.getTime() - endDateA.getTime();
+  });
 
   const sortedResearch = data.research.sort((a: any, b: any) => {
     const endDateA = moment(a.time.split(" – ")[1], "D MMM YYYY").toDate();
@@ -74,6 +78,22 @@ export default async function Affiliations() {
         Here's what experiences i have gained from different institutions
       </p>
       <div className="prose prose-neutral dark:prose-invert">
+        <h3 id="computer-office">Education</h3>
+        <div className="space-y-4">
+          {sortedEducation.map((obj: any) => (
+            <ExpCard
+              key={obj.id}
+              id={obj.id}
+              title={obj.title}
+              institute={obj.institute}
+              location={obj.address}
+              weblink={obj.weblink}
+              time={obj.time}
+              info={obj.info}
+            />
+          ))}
+        </div>
+
         <h3 id="computer-office">Research Employment</h3>
         <div className="space-y-4">
           {sortedResearch.map((obj: any) => (

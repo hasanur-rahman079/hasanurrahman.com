@@ -12,11 +12,47 @@ const ibsLogo = "/org_logos/IBS.jpg";
 const bsmiabSecondLogo = "/org_logos/secconf.jpg";
 
 const experiencesData = {
+  education: [
+    {
+      id: uuidv4(),
+      img: khuLogo,
+      title: "MSc",
+      institute:
+        "Department of Biotechnology, Bangladesh Agricultural University",
+      weblink: "https://btech.bau.edu.bd/",
+      address: "Mymensingh, Bangladesh",
+      time: " 1 Mar 2023 - Current",
+      info: "Got admitted in the last winter semester",
+    },
+    {
+      id: uuidv4(),
+      img: khuLogo,
+      title: "MSc",
+      institute:
+        "Department of Pathology, College of Korean Medicine, Kyung Hee University",
+      weblink: "https://khu.elsevierpure.com/en/persons/bonglee-kim/network/",
+      address: "Seoul, Republic of Korea",
+      time: " 1 Sept 2022 - 28 Feb 2023",
+      info: "Got full funded admission but unable to join because of visa difficulties. Continued 6 month through online.",
+    },
+    {
+      id: uuidv4(),
+      img: khuLogo,
+      title: "BSc",
+      institute:
+        "Department of Biotechnology and Genetic Engineering, Faculty of Life Sciences, Bangabandhu Sheikh Mujibur Rahman Science and Technology University",
+      weblink: "https://www.bsmrstu.edu.bd/s/",
+      address: "Gopalganj, Bangladesh",
+      time: "1 Jan 2017 - 25 Jan 2022",
+      info: "The degree was suppose to conferred in 31 December 2020 and because of pandemic it delayed 2 years",
+    },
+  ],
+
   research: [
     {
       id: uuidv4(),
       img: khuLogo,
-      title: "Research Assistant (Virtual)",
+      title: "Research Assistant",
       institute:
         " Department of Pathology, College of Korean Medicine, Kyung Hee University",
       weblink: "https://khu.elsevierpure.com/en/persons/bonglee-kim/network/",

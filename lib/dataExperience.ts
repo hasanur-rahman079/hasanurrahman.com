@@ -59,7 +59,7 @@ const experiencesData = {
       address: "Seoul, Republic of Korea",
       time: "1 Feb 2022 – 31 Mar 2023",
       focus:
-        "Cancer Material Developments, Reviewing Cancer Immunotherapies, Bioinformatics",
+        "Extraction and study of korean plant (C. sappan) phytochemicals and their drug likeness activity to korean pancreatic cancer patients.",
     },
 
     {
@@ -71,7 +71,7 @@ const experiencesData = {
       address: "East Azampur, Dhaka-1230",
       time: "1 Aug 2019 – 30 Mar 2023",
       focus:
-        "Reviewing Emerging Research Findings, Molecular Pharmacology Strategies and Drug Designing Using In-Silico Techniques.",
+        "Establishment of a computational-biology facility within the lab and study the natural extract phytochemicals and their drug likeness activity in human diseases (Kidney and Alzheimer) by using molecular pharmacology strategies.",
     },
 
     {
@@ -95,7 +95,7 @@ const experiencesData = {
       address: "Savar, Dhaka",
       time: "1 Nov 2019 – 31 Dec 2021",
       focus:
-        "Anticancer Phytochemicals Analysis, Designing and Developing Molecular Biology Pathways",
+        "Designing and Development of Molecular Biology Pathways and Anticancer Phytochemicals Analysis.",
     },
 
     {
@@ -107,7 +107,7 @@ const experiencesData = {
       address: "Dhaka, Bangladesh",
       time: "1 Mar 2021 – 30 Jun 2021",
       focus:
-        "Under a Ministry of Education Research Project Titled: Effects of Insulin on Breast Cancer Growth and Proliferation Among Diabetic Patients in Bangladesh. Project Supervisor was Dr. Salima Akter",
+        "Under a Ministry of Education Research Project Titled: Effects of Insulin on Breast Cancer Growth and Proliferation Among Diabetic Patients in Bangladesh. Project Supervisor was Dr. Salima Akter. My responsibiities was Collection of breast cancer patients (diabetic) samples from Mohakhali Cancer Hospital, analysis, report generation and data collection.",
     },
   ],
 

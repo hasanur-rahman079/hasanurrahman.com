@@ -13,17 +13,17 @@ const bsmiabSecondLogo = "/org_logos/secconf.jpg";
 
 const experiencesData = {
   education: [
-    {
-      id: uuidv4(),
-      img: khuLogo,
-      title: "MSc",
-      institute:
-        "Department of Biotechnology, Bangladesh Agricultural University",
-      weblink: "https://btech.bau.edu.bd/",
-      address: "Mymensingh, Bangladesh",
-      time: " 1 Mar 2023 - Current",
-      info: "Got admitted in the last winter semester",
-    },
+    // {
+    //   id: uuidv4(),
+    //   img: khuLogo,
+    //   title: "MSc",
+    //   institute:
+    //     "Department of Biotechnology, Bangladesh Agricultural University",
+    //   weblink: "https://btech.bau.edu.bd/",
+    //   address: "Mymensingh, Bangladesh",
+    //   time: " 1 Mar 2023 - Current",
+    //   info: "Got admitted in the last winter semester",
+    // },
     {
       id: uuidv4(),
       img: khuLogo,

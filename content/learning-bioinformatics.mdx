@@ -1,0 +1,394 @@
+---
+title: "Learning Bioinformatics"
+publishedAt: "2023-07-18"
+summary: "Bioinformatics syllabus and resources"
+---
+
+To prepare the syllabus and resources list, some information collected from the [Harvard Informatics group](https://github.com/harvardinformatics/learning-bioinformatics-at-home) and other contributors.
+
+## Table of content
+
+- [Unix for Bioinformatics](#unix)
+- [R for Bioinformatics](#r)
+- [Python and BioPython](#python)
+- [Git and version control](#git-and-version-control)
+- [Molecular Drug Designing](#molecular-drug-designing)
+- [RNA-seq](#rna-seq)
+- [Single-cell Analysis](#single-cell-analysis)
+- [Read mapping](#read-mapping)
+- [Variant calling](#variant-calling)
+- [Miscellaneous](#miscellaneous)
+
+### Unix for Bioinformatics
+
+#### Introduction
+
+<hr className="mb-2" />
+#### Unix Basics
+
+- Introduction to Unix and its role in bioinformatics.
+- Understanding the Unix file system and directory structure.
+- Basic Unix commands: ls, cd, pwd, mkdir, rm, cp, mv, etc.
+- Working with files and directories.
+
+#### Working with text data
+
+- Using text editors in Unix (e.g., nano, vi, vim) for editing files.
+- Redirection and pipes
+- Text processing utilities: grep, awk, sed.
+
+#### File manipulation
+
+- Archiving and compressing files: tar, gzip, zip.
+- File permissions and ownership: chmod, chown.
+
+#### Introduction to Scripting
+
+- Writing and executing basic shell scripts.
+- Variables, control structures, and loops.
+
+#### Intermediate
+
+<hr className="mb-2" />
+#### Data Retrieval and Transfer
+
+- Downloading files from the web using wget and curl.
+- Transferring files between local and remote systems using scp and rsync.
+
+#### Working with Biological Data Formats
+
+- Introduction to common bioinformatics data formats (FASTA, FASTQ, SAM/BAM, VCF, etc.).
+- Using tools for file format conversion (e.g., samtools, bedtools).
+
+#### Text Processing and Analysis
+
+- Advanced text processing with regular expressions.
+- Combining Unix tools for complex data analysis.
+- Extracting relevant information from large data files.
+
+#### Advanced
+
+<hr className="mb-2" />
+#### Text Processing and Analysis
+
+- Advanced text processing with regular expressions.
+- Combining Unix tools for complex data analysis.
+- Extracting relevant information from large data files.
+
+#### Shell Scripting and Automation
+
+- Writing more complex shell scripts for automation.
+- Using Unix tools to automate bioinformatics workflows.
+- Advanced scripting techniques and best practices.
+
+#### High-Performance Computing (HPC)
+
+- Introduction to HPC clusters and job submission systems.
+- Writing and submitting batch scripts for bioinformatics analysis.
+- Managing resources and optimizing performance.
+
+#### Advanced Data Manipulation
+
+- Using awk, sed, and other tools for advanced data manipulation.
+- Handling large datasets efficiently.
+
+#### Bioinformatics Pipelines
+
+- Designing and building bioinformatics pipelines using Unix tools.
+- Integrating third-party tools into custom pipelines.
+
+### R
+
+#### Introduction
+
+<hr className="mb-2" />
+#### Getting Started with R
+
+- Introduction to R and its applications in bioinformatics.
+- Installing R and RStudio (Integrated Development Environment for R).
+- Basic R syntax: variables, data types, and basic arithmetic operations.
+
+#### Working with Data in R
+
+- Data structures in R: vectors, matrices, data frames, and lists.
+- Reading and writing data from/to files (e.g., CSV, FASTA, FASTQ).
+- Basic data manipulation: subsetting, filtering, and sorting.
+
+#### Data Visualization
+
+- Introduction to data visualization in R.
+- Using base R graphics and ggplot2 for creating plots.
+- Customizing plots for bioinformatics data (e.g., genomics, proteomics).
+
+#### Intermediate
+
+<hr className="mb-2" />
+#### Statistical Analysis with R
+
+- Introduction to statistical analysis in R.
+- Descriptive statistics: mean, median, standard deviation, etc.
+- Hypothesis testing and statistical tests for bioinformatics data.
+
+#### Bioconductor and Genomic Data Analysis
+
+- Overview of Bioconductor, a repository of R packages for bioinformatics.
+- Analyzing gene expression data (microarrays, RNA-seq) with Bioconductor packages.
+- Working with genomic data (e.g., DNA sequencing, ChIP-seq, variant analysis).
+- Data Visualization (Advanced)
+
+#### Advanced data visualization techniques in R.
+
+- Creating complex plots for multi-dimensional bioinformatics data.
+- Interactive data visualization using packages like Plotly and Shiny.
+
+#### Advanced
+
+<hr className="mb-2" />
+#### Machine Learning with R
+
+- Introduction to machine learning in R.
+- Supervised and unsupervised learning algorithms.
+- Applying machine learning to bioinformatics data (e.g., classification, clustering).
+- Bioinformatics Workflows and Reproducibility
+
+#### Building and documenting bioinformatics workflows in R.
+
+- Using RMarkdown for creating reproducible reports.
+- Best practices for reproducible research in bioinformatics.
+
+#### Integration with Other Tools and Databases
+
+- Connecting R with databases (e.g., MySQL, SQLite) for data storage and retrieval.
+- Accessing and querying biological databases through R.
+
+#### High-Performance Computing (HPC) with R
+
+- Parallel computing in R for handling large-scale bioinformatics tasks.
+- Utilizing HPC clusters for bioinformatics analysis.
+
+### Python
+
+#### Introduction
+
+<hr className="mb-2" />
+#### Getting Started with Python
+
+- Introduction to Python and its applications in bioinformatics.
+- Installing Python and setting up the development environment.
+- Basic Python syntax: variables, data types, and control structures.
+
+#### Working with Data in Python
+
+- Data structures in Python: lists, tuples, dictionaries, and sets.
+- Reading and writing data from/to files (e.g., CSV, FASTA, FASTQ).
+- Basic data manipulation: slicing, filtering, and sorting.
+
+#### Data Visualization in Python
+
+- Introduction to data visualization in Python.
+- Using matplotlib and seaborn libraries to create plots.
+- Customizing plots for bioinformatics data (e.g., genomics, proteomics).
+
+#### Intermediate
+
+<hr className="mb-2" />
+#### Bioinformatics Algorithms in Python
+
+- Implementing common bioinformatics algorithms (e.g., sequence alignment, motif finding).
+- Utilizing Python libraries for bioinformatics tasks (e.g., pairwise2 for sequence alignment).
+- Analyzing biological sequences and structures.
+
+#### Biological Data Analysis with Pandas
+
+- Introduction to Pandas library for data manipulation and analysis.
+- Handling and processing bioinformatics data using Pandas DataFrames.
+- Data cleaning and preprocessing techniques.
+
+#### Bioinformatics Libraries in Python
+
+- Exploring Biopython: installation and basic usage.
+- Working with biological sequences, structures, and annotations.
+- Retrieving data from biological databases using Biopython.
+
+#### Advanced
+
+<hr className="mb-2" />
+#### Machine Learning for Bioinformatics
+
+- Introduction to machine learning in Python.
+- Supervised and unsupervised learning algorithms for bioinformatics data.
+- Applying machine learning to tasks like gene expression analysis, variant calling, etc.
+
+#### Bioinformatics Workflows and Automation
+
+- Building bioinformatics pipelines in Python.
+- Utilizing workflow management tools like Snakemake.
+- Automating repetitive tasks and batch processing.
+
+#### Data Visualization (Advanced)
+
+- Advanced data visualization in Python using Plotly, Bokeh, or Dash.
+- Creating interactive visualizations for complex bioinformatics data.
+
+#### Structural Bioinformatics with PyMOL
+
+- Introduction to PyMOL for visualization and analysis of molecular structures.
+- Structural alignment, superimposition, and visualization.
+
+### Git and Version Control
+
+#### Introduction
+
+<hr className="mb-2" />
+#### Understanding Version Control
+
+- What is version control and why it is important for researchers?
+- The benefits of using version control in research projects.
+- Overview of Git as a distributed version control system.
+
+#### Installing Git and Basic Configuration
+
+- Installing Git on your computer (Windows, macOS, Linux).
+- Configuring your Git identity (name, email).
+- Setting up a global .gitignore file to exclude unnecessary files.
+
+#### Creating and Cloning Repositories
+
+- Initializing a new Git repository for a research project.
+- Cloning an existing repository from a remote source (e.g., GitHub, GitLab).
+- Understanding the local and remote repository relationship.
+
+#### Working with Git for Researchers
+
+<hr className="mb-2" />
+#### Basic Version Control Operations
+
+- Staging and committing changes to the repository.
+- Viewing the commit history and understanding commit messages.
+- Checking out previous versions of files and repositories.
+
+#### Collaborating with Others
+
+- Adding collaborators to your repository.
+- Handling merge conflicts and resolving them.
+- Pulling changes from a remote repository and pushing your changes.
+
+#### Branching and Merging
+
+- Creating and managing branches for different research tasks.
+- Merging branches and resolving conflicts during merges.
+- Utilizing feature branches for experimental work.
+
+#### Advanced Git Techniques for Researchers
+
+<hr className="mb-2" />
+#### Managing Large Files and Data
+
+- Using Git LFS (Large File Storage) for handling large files.
+- Handling datasets and large research files with Git.
+
+#### Tagging and Releases
+
+- Creating tags to mark important milestones in your research.
+- Creating releases for specific versions of your research project.
+
+#### Git Best Practices for Research
+
+- Organizing your research project repository effectively.
+- Writing meaningful commit messages and documentation.
+- Using branching strategies that suit research workflows.
+
+#### Integrating Git into Research Workflows
+
+<hr className="mb-2" />
+#### Version Control with Data Analysis
+
+- Using Git to version control scripts and notebooks.
+- Incorporating Git into data analysis workflows.
+
+#### Collaborative Writing with Git
+
+- Using Git for collaborative writing (e.g., research papers, documentation).
+- Integrating Git with LaTeX, Markdown, or other writing formats.
+
+#### Automating Workflows with Git Hooks
+
+- Setting up Git hooks to automate tasks (e.g., running tests, code formatting).
+- Customizing pre-commit and post-commit hooks for your research needs.
+
+### Molecular Drug Designing
+
+#### Introduction
+
+<hr className="mb-2" />
+#### Introduction to Molecular Drug Design
+
+- Overview of molecular drug design and its importance in pharmaceutical research.
+- Understanding the process of drug discovery and development.
+
+#### Proteins as Drug Targets
+
+- Identifying and selecting protein targets for drug design.
+- Understanding the importance of protein structure in drug design.
+
+#### Molecular Docking
+
+<hr className="mb-2" />
+#### Principles of Molecular Docking
+
+- Understanding the basic principles of molecular docking.
+- Different types of molecular docking algorithms and scoring functions.
+
+#### Bioinformatics Tools for Molecular Docking
+
+- Introduction to molecular docking software (e.g., AutoDock, AutoDock Vina, Glide).
+- Preparing protein and ligand structures for docking.
+
+#### Performing Molecular Docking
+
+- Conducting protein-ligand docking simulations.
+- Analyzing docking results and interpreting binding interactions.
+
+#### Molecular Dynamics Simulation
+
+<hr className="mb-2" />
+#### Introduction to Molecular Dynamics (MD)
+
+- Understanding the principles of molecular dynamics simulations.
+- Applications of MD in drug design and biomolecular studies.
+
+#### Bioinformatics Tools for Molecular Dynamics
+
+- Introduction to MD simulation software (e.g., Schrodinger, GROMACS, AMBER, NAMD).
+- Preparing biomolecular systems for MD simulations.
+
+#### Running Molecular Dynamics Simulations
+
+- Setting up and running MD simulations.
+- Analyzing MD trajectories and extracting relevant data.
+
+#### Integration of Docking and Dynamics in Drug Design
+
+<hr className="mb-2" />
+#### Virtual Screening and Hit Identification
+
+- Using molecular docking for virtual screening of compound libraries.
+- Filtering and prioritizing potential drug candidates.
+
+#### Free Energy Calculations
+
+- Introduction to free energy calculation methods.
+- Enhancing accuracy with binding free energy calculations.
+
+#### Advanced Topics in Molecular Drug Design
+
+<hr className="mb-2" />
+
+#### Personalized Medicine and Drug Design
+
+- Exploring the concept of personalized medicine.
+- Customizing drug design approaches for individual patients.
+
+
+### RNA-seq
+

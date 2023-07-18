@@ -106,7 +106,7 @@ export default async function HomePage() {
             href="/cv_hasanur.pdf"
           >
             <HiOutlineArrowDownTray />
-            <p className="h-7 ml-1">download my resume</p>
+            <p className="h-7 ml-1">download my cv</p>
           </a>
         </li>
       </ul>

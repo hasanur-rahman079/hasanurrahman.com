@@ -41,7 +41,7 @@ export default async function HomePage() {
             className="flex items-center gap-2"
           >
             <RiDoubleQuotesL />
-            {` 318 citations all time`}
+            {` 355 citations all time`}
           </a>
 
           <a
@@ -51,7 +51,7 @@ export default async function HomePage() {
             className="flex items-center gap-2"
           >
             <SiResearchgate />
-            {` 9,169 reads on researchgate`}
+            {` 9,621 reads on researchgate`}
           </a>
 
           <Link href="/blog" className="flex items-center">

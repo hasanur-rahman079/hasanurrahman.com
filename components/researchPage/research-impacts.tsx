@@ -10,13 +10,13 @@ export default function ResearchImpacts({ totalPub }) {
         </p>
       </div>
       <div>
-        <p className="text-2xl font-mono font-semibold">323</p>
+        <p className="text-2xl font-mono font-semibold">355</p>
         <p className="text-sm text-neutral-600 dark:text-neutral-400">
           citations
         </p>
       </div>
       <div>
-        <p className="text-2xl font-mono font-semibold">11</p>
+        <p className="text-2xl font-mono font-semibold">12</p>
         <p className="text-sm text-neutral-600 dark:text-neutral-400">
           h-index
         </p>

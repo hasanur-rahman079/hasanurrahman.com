@@ -54,7 +54,7 @@ const experiencesData = {
       img: khuLogo,
       title: "Research Assistant II",
       institute: "Dr. Hannan’s Lab, Bangladesh Agricultural Univeristy,",
-      weblink: "https://khu.elsevierpure.com/en/persons/bonglee-kim/network/",
+      weblink: "https://bau.edu.bd/profile/BMB1010",
       address: "Mymensingh, Bangladesh",
       time: "1 Apr 2023 – Current",
       focus:

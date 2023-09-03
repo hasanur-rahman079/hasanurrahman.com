@@ -52,9 +52,21 @@ const experiencesData = {
     {
       id: uuidv4(),
       img: khuLogo,
+      title: "Research Assistant II",
+      institute: "Dr. Hannan’s Lab, Bangladesh Agricultural Univeristy,",
+      weblink: "https://khu.elsevierpure.com/en/persons/bonglee-kim/network/",
+      address: "Mymensingh, Bangladesh",
+      time: "1 Apr 2023 – Current",
+      focus:
+        "Define research questions to estimate the potential prevention of Dementia, Alzheimer’s and Diabetes mellitus type 2 disease by molecular pathway analysis using network pharmacology and computational approaches, Perform molecular dynamic simulation and genome sequencing data analysis.",
+    },
+
+    {
+      id: uuidv4(),
+      img: khuLogo,
       title: "Research Assistant",
       institute:
-        " Department of Pathology, College of Korean Medicine, Kyung Hee University",
+        "Department of Pathology, College of Korean Medicine, Kyung Hee University",
       weblink: "https://khu.elsevierpure.com/en/persons/bonglee-kim/network/",
       address: "Seoul, Republic of Korea",
       time: "1 Feb 2022 – 31 Mar 2023",

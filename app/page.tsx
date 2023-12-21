@@ -41,7 +41,7 @@ export default async function HomePage() {
             className="flex items-center gap-2"
           >
             <RiDoubleQuotesL />
-            {` 355 citations all time`}
+            {` 470 citations all time`}
           </a>
 
           <a
@@ -51,12 +51,12 @@ export default async function HomePage() {
             className="flex items-center gap-2"
           >
             <SiResearchgate />
-            {` 9,621 reads on researchgate`}
+            {` 10,962 reads on researchgate`}
           </a>
 
           <Link href="/blog" className="flex items-center">
             <ViewsIcon />
-            {`${views.toLocaleString()} blog views all time`}
+            {`${views && views.toLocaleString()} blog views all time`}
           </Link>
         </div>
       </div>

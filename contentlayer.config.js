@@ -5,19 +5,11 @@ import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
+
 const computedFields = {
   slug: {
     type: "string",
     resolve: (doc) => doc._raw.flattenedPath,
-  },
-  tweetIds: {
-    type: "array",
-    resolve: (doc) => {
-      const tweetMatches = doc.body.raw.match(
-        /<StaticTweet\sid="[0-9]+"\s\/>/g
-      );
-      return tweetMatches?.map((tweet) => tweet.match(/[0-9]+/g)[0]) || [];
-    },
   },
   structuredData: {
     type: "object",

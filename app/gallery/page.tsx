@@ -1,21 +1,30 @@
 import React from "react";
 import PhotoGallery from "components/photoGallery";
-import gallery from "lib/gallary";
+// import gallery from "lib/gallary";
 import { Metadata } from "next";
-import { fetchCloudImages } from "lib/cloudinary";
+import { v2 as cloudinary } from "cloudinary";
 
-export const metadata: Metadata = {
-  title: "Gallery",
-  description: "Here's what research I've published so far",
-};
+// export const metadata: Metadata = {
+//   title: "Gallery",
+//   description: "Here's what research I've published so far",
+// };
 
-async function galleryData() {
-  return gallery;
-}
+// async function galleryData() {
+//   return gallery;
+// }
+
+cloudinary.config({
+  cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 export default async function GalleryPage() {
-  const cloudImage = await fetchCloudImages();
+  const resources = await cloudinary.search
+    .expression("resource_type:image AND tags=hasanurWebsite")
+    .execute();
 
+  // console.log(resources);
   return (
     <section>
       <h1 className="font-bold text-3xl font-serif mb-8">Gallery</h1>
@@ -24,7 +33,7 @@ export default async function GalleryPage() {
         and Travel Adventures
       </p>
 
-      <PhotoGallery img={cloudImage} />
+      <PhotoGallery images={resources} />
     </section>
   );
 }

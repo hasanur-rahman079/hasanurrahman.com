@@ -1,8 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import LightGallery from "lightgallery/react";
-import { CldImage } from "next-cloudinary";
 
 // import styles
 import "lightgallery/css/lightgallery.css";
@@ -15,95 +14,40 @@ import lgThumbnail from "lightgallery/plugins/thumbnail";
 import lgZoom from "lightgallery/plugins/zoom";
 import Image from "next/image";
 import { HiOutlineMapPin } from "react-icons/hi2";
-import { fetchCloudImages } from "lib/cloudinary";
 
 interface ImageData {
-  id: string;
-  img: string;
-  des: string;
-  alt: string;
-  date: string;
-  pubId: string;
-  location: string;
+  asset_id: string;
+  public_id: string;
+  folder: string;
+  filename: string;
+  format: string;
+  version: number;
+  resource_type: string;
+  type: string;
+  created_at: string;
+  uploaded_at: string;
+  bytes: number;
+  width: number;
+  height: number;
+  aspect_ratio: number;
+  pixels: number;
+  url: string;
+  secure_url: string;
+  status: string;
+  access_mode: string;
+  title?: string;
+  des?: string;
+  location?: string;
 }
 
 interface PhotoGalleryProps {
-  img: {
-    resources: Array<{
-      asset_id: string;
-      secure_url: string;
-      created_at: string;
-      public_id: string;
-    }>;
-    next_cursor?: string;
+  images: {
+    resources: ImageData[];
   };
 }
 
-export default function PhotoGallery({ img }: PhotoGalleryProps) {
-  const [cloudinaryImages, setCloudinaryImages] = useState<ImageData[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-
-  useEffect(() => {
-    const fetchImages = async () => {
-      try {
-        setLoading(true);
-        const response = await fetchCloudImages(img);
-        console.log("Cloudinary API response", response);
-
-        const newImages =
-          response.resources?.map((image) => ({
-            id: image.asset_id,
-            img: image.secure_url,
-            des: "",
-            alt: "",
-            date: image.created_at,
-            pubId: image.public_id,
-            location: "",
-          })) || [];
-
-        console.log("New images", newImages);
-
-        setCloudinaryImages((prevImages) => [...prevImages, ...newImages]);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching Cloudinary images:", error);
-        setLoading(false);
-      }
-    };
-
-    fetchImages();
-  }, [img]);
-
-  useEffect(() => {
-    setCloudinaryImages([]);
-  }, [img]);
-
-  const handleLoadMore = async () => {
-    try {
-      setLoading(true);
-      const response = await fetchCloudImages(img.next_cursor);
-      console.log("Cloudinary API response (load more)", response);
-
-      const newImages =
-        response.resources?.map((image) => ({
-          id: image.asset_id,
-          img: image.secure_url,
-          des: "",
-          alt: "",
-          date: image.created_at,
-          pubId: image.public_id,
-          location: "",
-        })) || [];
-
-      console.log("New images (load more)", newImages);
-
-      setCloudinaryImages((prevImages) => [...prevImages, ...newImages]);
-    } catch (error) {
-      console.error("Error fetching Cloudinary images (load more):", error);
-    } finally {
-      setLoading(false);
-    }
-  };
+export default function PhotoGallery({ images }: PhotoGalleryProps) {
+  const [loading, setLoading] = useState<boolean>(false);
 
   return (
     <>
@@ -116,16 +60,16 @@ export default function PhotoGallery({ img }: PhotoGalleryProps) {
             speed={500}
             plugins={[lgThumbnail, lgZoom]}
           >
-            {cloudinaryImages.map((obj) => {
+            {images.resources.map((obj) => {
               return (
                 <a
                   className="flex flex-wrap p-2"
-                  key={obj.id}
-                  href={obj.img}
-                  data-sub-html={`${obj.des}, Location: ${obj.location}, Date: ${obj.date}`}
+                  key={obj.public_id}
+                  href={obj.secure_url}
+                  data-sub-html={`${obj.des}, Location: ${obj.location}`}
                 >
                   <Image
-                    key={obj.id}
+                    key={obj.asset_id}
                     width={400}
                     height={500}
                     style={{
@@ -133,8 +77,10 @@ export default function PhotoGallery({ img }: PhotoGalleryProps) {
                       height: "auto",
                     }}
                     className="img-responsive rounded bg-slate-200 relative"
-                    alt={`${obj.alt}-MD. Hasanur Rahman (Hasanur)`}
-                    src={obj.img}
+                    alt={`${
+                      obj.title || obj.filename
+                    }-MD. Hasanur Rahman (Hasanur)`}
+                    src={obj.secure_url}
                   />
 
                   {/* <div className="absolute pt-1 pl-1">
@@ -148,8 +94,8 @@ export default function PhotoGallery({ img }: PhotoGalleryProps) {
             })}
           </LightGallery>
 
-          <div className="mt-8">
-            {!loading && img.next_cursor && (
+          {/* <div className="mt-8">
+            {!loading && img && (
               <button
                 className="border w-full py-4 rounded hover:bg-slate-200 transition-all duration-300"
                 onClick={handleLoadMore}
@@ -157,7 +103,7 @@ export default function PhotoGallery({ img }: PhotoGalleryProps) {
                 Load More
               </button>
             )}
-          </div>
+          </div> */}
         </>
       )}
     </>

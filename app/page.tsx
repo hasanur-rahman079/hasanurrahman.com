@@ -10,12 +10,12 @@ import { HiOutlineArrowDownTray } from "react-icons/hi2";
 export const revalidate = 60;
 
 export default async function HomePage() {
-  let views;
+  let views = 0; // Default value
 
   try {
     [views] = await Promise.all([getBlogViews()]);
   } catch (error) {
-    console.error(error);
+    console.error("Error fetching views:", error);
   }
 
   return (
@@ -41,7 +41,7 @@ export default async function HomePage() {
             className="flex items-center gap-2"
           >
             <RiDoubleQuotesL />
-            {` 470 citations all time`}
+            {` 684 citations all time`}
           </a>
 
           <a
@@ -51,7 +51,7 @@ export default async function HomePage() {
             className="flex items-center gap-2"
           >
             <SiResearchgate />
-            {` 10,962 reads on researchgate`}
+            {` 13,265 reads on researchgate`}
           </a>
 
           <Link href="/blog" className="flex items-center">

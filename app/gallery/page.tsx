@@ -2,6 +2,7 @@ import React from "react";
 import PhotoGallery from "components/photoGallery";
 import gallery from "lib/gallary";
 import { Metadata } from "next";
+import { fetchCloudImages } from "lib/cloudinary";
 
 export const metadata: Metadata = {
   title: "Gallery",
@@ -13,7 +14,7 @@ async function galleryData() {
 }
 
 export default async function GalleryPage() {
-  const image = await galleryData();
+  const cloudImage = await fetchCloudImages();
 
   return (
     <section>
@@ -23,7 +24,7 @@ export default async function GalleryPage() {
         and Travel Adventures
       </p>
 
-      <PhotoGallery img={image} />
+      <PhotoGallery img={cloudImage} />
     </section>
   );
 }

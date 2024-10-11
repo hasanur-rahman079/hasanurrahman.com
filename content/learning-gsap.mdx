@@ -1,0 +1,110 @@
+---
+title: Learning GSAP Library for Animations
+publishedAt: "2023-12-18"
+summary: learning GreenSock Animation Platform library for animations.
+---
+
+## GSAP (GreenSock Animation Platform)
+
+This is the general fundamental use for GSAP library.
+
+```js
+# only for inital state
+// gsap.method(element, vars obj)
+
+# for both inital and final state
+// gsap.fromTo(element, { inital state }, { final state });
+```
+
+## GSAP Library [Methods](<https://gsap.com/docs/v3/GSAP/gsap.config()>)
+
+GitHub Copilot: The GSAP (GreenSock Animation Platform) library provides several methods for creating animations. Here are some of them:
+
+1. `gsap.to()`: This method animates any numeric property of an object from the current value to the value you provide.
+
+2. `gsap.from()`: This method is similar to `gsap.to()`, but it animates the property from the value you provide to the current value. In this method, you don't have to specify the inital state (It will figure it out by itself)
+
+3. `gsap.fromTo()`: This method allows you to define both the starting and ending values for your animation.
+
+4. `gsap.set()`: This method allows you to set the value of a property instantly, without animating it.
+
+5. `gsap.killTweensOf()`: This method allows you to stop any animation that is currently affecting the properties of a particular object.
+
+6. `gsap.delayedCall()`: This method allows you to schedule a function to be called after a certain amount of time.
+
+7. `gsap.timeline()`: This method allows you to group multiple animations together and control them as a whole.
+
+Remember, these methods are used to animate properties of DOM elements or JavaScript objects. The properties to be animated are specified in a `vars` object passed as the second argument to these methods.
+
+## GSAP Library Elements
+
+The `element` can be a string or a DOM element. The `vars` is an object that contains the properties that we want to animate. For example:
+
+```js
+gsap.to(".box", { duration: 2, x: 100 });
+```
+
+This will move the element with the class of `box` to the right by 100px.
+
+## GSAP Library [Properties](https://gsap.com/docs/v3/GSAP/gsap.effects)
+
+The `vars` object can contain many properties. Some of them are:
+
+| Column 1                  | Column 2                  |
+| ------------------------- | ------------------------- |
+| `x`                       | `onInterrupt`             |
+| `y`                       | `onInterruptParams`       |
+| `scale`                   | `onInterruptScope`        |
+| `opacity`                 | `onResume`                |
+| `rotation`                | `onResumeParams`          |
+| `duration`                | `onResumeScope`           |
+| `delay`                   | `onPause`                 |
+| `ease`                    | `onPauseParams`           |
+| `repeat`                  | `onPauseScope`            |
+| `repeatDelay`             | `onComplete`              |
+| `yoyo`                    | `onCompleteParams`        |
+| `paused`                  | `onCompleteScope`         |
+| `onStart`                 | `onReverseComplete`       |
+| `onUpdate`                | `onReverseCompleteParams` |
+| `onComplete`              | `onReverseCompleteScope`  |
+| `onRepeat`                | `onRepeatParams`          |
+| `onReverseComplete`       | `onRepeatScope`           |
+| `onStartParams`           | `onUpdate`                |
+| `onUpdateParams`          | `onUpdateParams`          |
+| `onCompleteParams`        | `onUpdateScope`           |
+| `onRepeatParams`          | `onStart`                 |
+| `onReverseCompleteParams` | `onStartParams`           |
+| `onStartScope`            | `onStartScope`            |
+| `onUpdateScope`           | `onOverwrite`             |
+| `onCompleteScope`         | `onOverwriteParams`       |
+| `onRepeatScope`           | `onOverwriteScope`        |
+| `onReverseCompleteScope`  | `autoKill`                |
+| `overwrite`               | `callbackScope`           |
+| `overwriteParams`         | `paused`                  |
+| `paused`                  | `delay`                   |
+| `immediateRender`         | `duration`                |
+| `lazy`                    | `ease`                    |
+| `autoCSS`                 | `overwrite`               |
+| `useFrames`               | `immediateRender`         |
+| `callbackScope`           | `lazy`                    |
+| `runBackwards`            | `autoCSS`                 |
+| `yoyoEase`                | `useFrames`               |
+| `keyframes`               | `runBackwards`            |
+| `markers`                 | `yoyoEase`                |
+| `autoRound`               | `keyframes`               |
+| `repeatRefresh`           | `markers`                 |
+| `data`                    | `autoRound`               |
+| `id`                      | `repeatRefresh`           |
+| `parent`                  | `data`                    |
+| `overwrite`               | `id`                      |
+| `defaults`                | `parent`                  |
+| `scrollTrigger`           | `scrollTrigger`           |
+| `onInterrupt`             | `onInterruptParams`       |
+
+## GSAP Built in functions
+
+1. `Staggers`: This is used to animate multiple elements with a delay between each element.
+2. `Timelines`: This is used to group multiple animations together and control them as a whole.
+3. `Controlling Tweens`: This is used to control the tweens.
+
+However, The [GSAP Ease Visualizer](https://gsap.com/docs/v3/Eases/) is a great tool for visualizing the different easing options available in GSAP.

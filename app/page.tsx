@@ -1,101 +1,116 @@
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowIcon, ViewsIcon } from "@/components/icons";
+import { SiResearchgate } from "react-icons/si";
+import { RiDoubleQuotesL } from "react-icons/ri";
+import { name, about, bio, avatar } from "@/lib/info";
+import { HiOutlineArrowDownTray } from "react-icons/hi2";
+import { getBlogViews } from "@/lib/metrics";
 
-export default function Home() {
+export const revalidate = 10;
+
+export default async function Home() {
+  let views = 0;
+
+  try {
+    const blogViews = await getBlogViews();
+    views = blogViews ?? 0; // Set views to 0 if blogViews is undefined or null
+  } catch (error) {
+    console.error("Error fetching views:", error);
+  }
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+    <section>
+      <h1 className="font-bold text-3xl font-serif">{name}</h1>
+      <p className="my-5 max-w-[460px] text-neutral-800 dark:text-neutral-200">
+        {about()}
+      </p>
+      <div className="flex items-start md:items-center my-8 flex-col md:flex-row">
         <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
+          alt={name}
+          className="rounded-full grayscale"
+          src={avatar}
+          placeholder="blur"
+          width={100}
           priority
         />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+        <div className="mt-8 md:mt-0 ml-0 md:ml-6 space-y-2 text-neutral-500 dark:text-neutral-400">
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://scholar.google.com/citations?hl=en&authuser=1&user=l2q048wAAAAJ"
+            className="flex items-center gap-2"
+          >
+            <RiDoubleQuotesL />
+            {` 684 citations all time`}
+          </a>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
           <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
             rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
             target="_blank"
-            rel="noopener noreferrer"
+            href="https://www.researchgate.net/profile/Md-Rahman-262"
+            className="flex items-center gap-2"
           >
-            Read our docs
+            <SiResearchgate />
+            {` 13,265 reads on researchgate`}
           </a>
+
+          <Link href="/blog" className="flex items-center">
+            <ViewsIcon />
+            {`${views && views.toLocaleString()} blog views all time`}
+          </Link>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+
+      <p className="my-5 max-w-[600px] text-neutral-800 dark:text-neutral-200">
+        {bio()}
+      </p>
+      <ul className="flex flex-col md:flex-row mt-8 space-x-0 md:space-x-4 space-y-2 md:space-y-0 font-sm text-neutral-500 dark:text-neutral-400">
+        <li>
+          <a
+            className="flex items-center hover:text-neutral-700 dark:hover:text-neutral-200 transition-all"
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://twitter.com/hasanur069"
+          >
+            <ArrowIcon />
+            <p className="h-7">follow me on twitter</p>
+          </a>
+        </li>
+        <li>
+          <a
+            className="flex items-center hover:text-neutral-700 dark:hover:text-neutral-200 transition-all"
+            rel="noopener noreferrer"
+            target="_blank"
+            href="mailto:hasanurrahman.bge@gmail.com"
+          >
+            <ArrowIcon />
+            <p className="h-7">send an email</p>
+          </a>
+        </li>
+        <li>
+          <a
+            className="flex items-center hover:text-neutral-700 dark:hover:text-neutral-200 transition-all"
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://www.linkedin.com/in/hasanur069/"
+          >
+            <ArrowIcon />
+            <p className="h-7">connect on linkedin</p>
+          </a>
+        </li>
+        <li>
+          <a
+            className="flex items-center hover:text-neutral-700 dark:hover:text-neutral-200 transition-all"
+            rel="noopener noreferrer"
+            target="_blank"
+            href="/cv_hasanur.pdf"
+          >
+            <HiOutlineArrowDownTray />
+            <p className="h-7 ml-1">download my cv</p>
+          </a>
+        </li>
+      </ul>
+    </section>
   );
 }

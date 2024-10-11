@@ -1,0 +1,585 @@
+---
+title: Learning Bioinformatics
+publishedAt: "2023-07-18"
+summary: Bioinformatics syllabus and resources.
+---
+
+To prepare the syllabus and resources list, some information collected from the [Harvard Informatics group](https://github.com/harvardinformatics/learning-bioinformatics-at-home) and other contributors.
+
+## Table of content
+
+- [Unix for Bioinformatics](#unix)
+- [R for Bioinformatics](#r)
+- [Python and BioPython](#python)
+- [Git and version control](#git-and-version-control)
+- [Molecular Drug Designing](#molecular-drug-designing)
+- [RNA-seq](#rna-seq)
+- [Single-cell Analysis](#single-cell-analysis)
+- [Read mapping](#read-mapping)
+- [Variant calling](#variant-calling)
+- [Miscellaneous](#miscellaneous)
+
+
+## Introduction
+
+<hr className="mb-2" />
+### Introduction to Bioinformatics
+
+#### What is Bioinformatics
+
+- Definition and history of bioinformatics.
+- Key areas of bioinformatics: genomics, proteomics, transcriptomics, etc.
+
+#### Bioinformatics Databases
+
+- Introduction to key biological databases: NCBI, Ensembl, UniProt, PDB, etc.
+- Retrieving data from biological databases.
+
+
+### Sequence Alignment
+
+#### Introduction to Sequence Alignment
+- Overview of sequence alignment (pairwise and multiple sequence alignment).
+- Local vs global alignment.
+
+#### Tools for Sequence Alignment
+- Using tools like BLAST, Clustal Omega, and MUSCLE for sequence alignment.
+- Practical applications of sequence alignment in bioinformatics.
+
+### Metagenomics
+
+#### Introduction to Metagenomics
+- Understanding metagenomics and its applications.
+- Difference between metagenomics and traditional genomics.
+
+#### Tools for Metagenomic Analysis
+- Using tools like QIIME, Kraken, and MetaPhlAn for analyzing metagenomic data.
+- Taxonomic and functional annotation of metagenomic data.
+
+### Proteomics
+
+#### Introduction to Proteomics
+- Basics of proteomics and its role in bioinformatics.
+- Techniques in proteomics: mass spectrometry, protein sequencing.
+
+#### Bioinformatics Tools for Proteomics
+- Tools for analyzing protein data (e.g., MaxQuant, Skyline).
+- Protein structure prediction and modeling (e.g., AlphaFold, I-TASSER).
+
+#### Protein-Protein Interaction Networks
+- Introduction to protein interaction databases and tools (e.g., STRING, Cytoscape).
+
+
+### Epigenomics
+
+#### Introduction to Epigenomics
+- Understanding DNA methylation, histone modifications, and their roles.
+- Introduction to epigenetic regulation in diseases.
+
+#### Epigenomic Data Analysis
+- Tools for analyzing epigenomic data (e.g., Bismark for bisulfite sequencing).
+- Chip-Seq data analysis.
+
+### Data Integration and Systems Biology
+
+#### Introduction to Systems Biology
+- Understanding biological networks and systems biology approaches.
+- Application of network analysis in bioinformatics.
+
+#### Integrative Omics Analysis
+- Combining data from multiple omics (e.g., genomics, transcriptomics, proteomics).
+- Tools for integrative omics analysis (e.g., iCluster, MultiOmics).
+
+### Population Genomics
+
+#### Introduction to Population Genomics
+- Basics of population genomics and evolutionary analysis.
+- Genetic variation, SNPs, and their impact on populations.
+
+#### Tools for Population Genomics
+- Using tools like PLINK, VCFtools for population-level genomic analysis.
+- Studying population structure and diversity.
+
+### Structural Bioinformatics
+
+#### Protein Structure Prediction
+- Predicting 3D structures of proteins using homology modeling.
+- Introduction to tools like SWISS-MODEL, Rosetta, and Phyre2.
+
+#### Structural Analysis and Visualization
+- Understanding molecular dynamics in protein function.
+- Visualization of protein structures using Chimera and PyMOL.
+
+### Network Biology and Pathway Analysis
+
+#### Biological Networks
+- Basics of biological networks: metabolic, signaling, protein interaction networks.
+
+#### Network Analysis Tools
+- Introduction to tools like Cytoscape for network visualization and analysis.
+- Identifying key regulators using network centrality metrics.
+
+### CRISPR and Genome Editing
+
+#### Introduction to CRISPR-Cas9 Technology
+- Basics of CRISPR and its applications in bioinformatics.
+
+#### CRISPR Data Analysis
+- Tools for CRISPR guide RNA design (e.g., CRISPR-Cas9).
+- Off-target analysis and optimization.
+
+### Unix for Bioinformatics
+
+#### Unix Basics
+
+- Introduction to Unix and its role in bioinformatics.
+- Understanding the Unix file system and directory structure.
+- Basic Unix commands: **ls, cd, pwd, mkdir, rm, cp, mv**, etc.
+- Working with files and directories.
+
+#### Working with text data
+
+- Using text editors in Unix (e.g., **nano**, **vi**, **vim**) for editing files.
+- Redirection and pipes
+- Text processing utilities: **grep**, **awk**, **sed**.
+
+#### File manipulation
+
+- Archiving and compressing files: **tar**, **gzip**, **zip**.
+- File permissions and ownership: **chmod**, **chown**.
+
+#### Introduction to Scripting
+
+- Writing and executing basic shell scripts.
+- Variables, control structures, and loops.
+
+#### Intermediate
+
+<hr className="mb-2" />
+#### Data Retrieval and Transfer
+
+- Downloading files from the web using wget and curl.
+- Transferring files between local and remote systems using scp and rsync.
+
+#### Working with Biological Data Formats
+
+- Introduction to common bioinformatics data formats (**FASTA**, **FASTQ**, **SAM/BAM**, **VCF**, etc.).
+- Using tools for file format conversion (e.g., **samtools**, **bedtools**).
+
+#### Text Processing and Analysis
+
+- Advanced text processing with regular expressions.
+- Combining Unix tools for complex data analysis.
+- Extracting relevant information from large data files.
+
+#### Advanced
+
+<hr className="mb-2" />
+
+#### Shell Scripting and Automation
+
+- Writing more complex shell scripts for automation.
+- Using Unix tools to automate bioinformatics workflows.
+- Advanced scripting techniques and best practices.
+
+#### High-Performance Computing (HPC)
+
+- Introduction to HPC clusters and job submission systems.
+- Writing and submitting batch scripts for bioinformatics analysis.
+- Managing resources and optimizing performance.
+
+#### Advanced Data Manipulation
+
+- Using awk, sed, and other tools for advanced data manipulation.
+- Handling large datasets efficiently.
+
+#### Bioinformatics Pipelines
+
+- Designing and building bioinformatics pipelines using Unix tools.
+- Integrating third-party tools into custom pipelines.
+
+### R
+
+#### Introduction
+
+<hr className="mb-2" />
+#### Getting Started with R
+
+- Introduction to R and its applications in bioinformatics.
+- Installing R and RStudio (Integrated Development Environment for R).
+- Basic R syntax: variables, data types, and basic arithmetic operations.
+
+#### Working with Data in R
+
+- Data structures in R: vectors, matrices, data frames, and lists.
+- Reading and writing data from/to files (e.g., **CSV**, **FASTA**, **FASTQ**).
+- Basic data manipulation: subsetting, filtering, and sorting.
+
+#### Data Visualization
+
+- Introduction to data visualization in R.
+- Using base R graphics and ggplot2 for creating plots.
+- Customizing plots for bioinformatics data (e.g., genomics, proteomics).
+
+#### Intermediate
+
+<hr className="mb-2" />
+#### Statistical Analysis with R
+
+- Introduction to statistical analysis in R.
+- Descriptive statistics: mean, median, standard deviation, etc.
+- Hypothesis testing and statistical tests for bioinformatics data.
+
+#### Bioconductor and Genomic Data Analysis
+
+- Overview of Bioconductor, a repository of R packages for bioinformatics.
+- Analyzing gene expression data (microarrays, RNA-seq) with Bioconductor packages.
+- Working with genomic data (e.g., **DNA sequencing**, **ChIP-seq**, **variant analysis**).
+- Data Visualization (Advanced)
+
+#### Advanced data visualization techniques in R.
+
+- Creating complex plots for multi-dimensional bioinformatics data.
+- Interactive data visualization using packages like Plotly and Shiny.
+
+#### Advanced
+
+<hr className="mb-2" />
+#### Machine Learning with R
+
+- Introduction to machine learning in R.
+- Supervised and unsupervised learning algorithms.
+- Applying machine learning to bioinformatics data (e.g., classification, clustering).
+- Bioinformatics Workflows and Reproducibility
+
+#### Building and documenting bioinformatics workflows in R.
+
+- Using RMarkdown for creating reproducible reports.
+- Best practices for reproducible research in bioinformatics.
+
+#### Integration with Other Tools and Databases
+
+- Connecting R with databases (e.g., **MySQL**, **SQLite**) for data storage and retrieval.
+- Accessing and querying biological databases through R.
+
+#### High-Performance Computing (HPC) with R
+
+- Parallel computing in R for handling large-scale bioinformatics tasks.
+- Utilizing HPC clusters for bioinformatics analysis.
+
+### Python
+
+#### Introduction
+
+<hr className="mb-2" />
+#### Getting Started with Python
+
+- Introduction to Python and its applications in bioinformatics.
+- Installing Python and setting up the development environment.
+- Basic Python syntax: variables, data types, and control structures.
+
+#### Working with Data in Python
+
+- Data structures in Python: lists, tuples, dictionaries, and sets.
+- Reading and writing data from/to files (e.g., **CSV**, **FASTA**, **FASTQ**).
+- Basic data manipulation: **slicing**, **filtering**, and **sorting**.
+
+#### Data Visualization in Python
+
+- Introduction to data visualization in Python.
+- Using matplotlib and seaborn libraries to create plots.
+- Customizing plots for bioinformatics data (e.g., genomics, proteomics).
+
+#### Intermediate
+
+<hr className="mb-2" />
+#### Bioinformatics Algorithms in Python
+
+- Implementing common bioinformatics algorithms (e.g., **sequence alignment**, **motif finding**).
+- Utilizing Python libraries for bioinformatics tasks (e.g., **pairwise2** for sequence alignment).
+- Analyzing biological sequences and structures.
+
+#### Biological Data Analysis with Pandas
+
+- Introduction to Pandas library for data manipulation and analysis.
+- Handling and processing bioinformatics data using Pandas DataFrames.
+- Data cleaning and preprocessing techniques.
+
+#### Bioinformatics Libraries in Python
+
+- Exploring Biopython: installation and basic usage.
+- Working with biological sequences, structures, and annotations.
+- Retrieving data from biological databases using Biopython.
+
+#### Advanced
+
+<hr className="mb-2" />
+#### Machine Learning for Bioinformatics
+
+- Introduction to machine learning in Python.
+- Supervised and unsupervised learning algorithms for bioinformatics data.
+- Applying machine learning to tasks like gene expression analysis, variant calling, etc.
+
+#### Bioinformatics Workflows and Automation
+
+- Building bioinformatics pipelines in Python.
+- Utilizing workflow management tools like Snakemake.
+- Automating repetitive tasks and batch processing.
+
+#### Data Visualization (Advanced)
+
+- Advanced data visualization in Python using Plotly, Bokeh, or Dash.
+- Creating interactive visualizations for complex bioinformatics data.
+
+#### Structural Bioinformatics with PyMOL
+
+- Introduction to **PyMOL** for visualization and analysis of molecular structures.
+- Structural alignment, superimposition, and visualization.
+
+### Git and Version Control
+
+#### Introduction
+
+<hr className="mb-2" />
+#### Understanding Version Control
+
+- What is version control and why it is important for researchers?
+- The benefits of using version control in research projects.
+- Overview of Git as a distributed version control system.
+
+#### Installing Git and Basic Configuration
+
+- Installing Git on your computer (Windows, macOS, Linux).
+- Configuring your Git identity (name, email).
+- Setting up a global .gitignore file to exclude unnecessary files.
+
+#### Creating and Cloning Repositories
+
+- Initializing a new Git repository for a research project.
+- Cloning an existing repository from a remote source (e.g., GitHub, GitLab).
+- Understanding the local and remote repository relationship.
+
+#### Working with Git for Researchers
+
+<hr className="mb-2" />
+#### Basic Version Control Operations
+
+- Staging and committing changes to the repository.
+- Viewing the commit history and understanding commit messages.
+- Checking out previous versions of files and repositories.
+
+#### Collaborating with Others
+
+- Adding collaborators to your repository.
+- Handling merge conflicts and resolving them.
+- Pulling changes from a remote repository and pushing your changes.
+
+#### Branching and Merging
+
+- Creating and managing branches for different research tasks.
+- Merging branches and resolving conflicts during merges.
+- Utilizing feature branches for experimental work.
+
+#### Advanced Git Techniques for Researchers
+
+<hr className="mb-2" />
+#### Managing Large Files and Data
+
+- Using Git LFS (Large File Storage) for handling large files.
+- Handling datasets and large research files with Git.
+
+#### Tagging and Releases
+
+- Creating tags to mark important milestones in your research.
+- Creating releases for specific versions of your research project.
+
+#### Git Best Practices for Research
+
+- Organizing your research project repository effectively.
+- Writing meaningful commit messages and documentation.
+- Using branching strategies that suit research workflows.
+
+#### Integrating Git into Research Workflows
+
+<hr className="mb-2" />
+#### Version Control with Data Analysis
+
+- Using Git to version control scripts and notebooks.
+- Incorporating Git into data analysis workflows.
+
+#### Collaborative Writing with Git
+
+- Using Git for collaborative writing (e.g., research papers, documentation).
+- Integrating Git with LaTeX, Markdown, or other writing formats.
+
+#### Automating Workflows with Git Hooks
+
+- Setting up Git hooks to automate tasks (e.g., running tests, code formatting).
+- Customizing pre-commit and post-commit hooks for your research needs.
+
+### Molecular Drug Designing
+
+#### Introduction
+
+<hr className="mb-2" />
+#### Introduction to Molecular Drug Design
+
+- Overview of molecular drug design and its importance in pharmaceutical research.
+- Understanding the process of drug discovery and development.
+
+#### Proteins as Drug Targets
+
+- Identifying and selecting protein targets for drug design.
+- Understanding the importance of protein structure in drug design.
+
+#### Molecular Docking
+
+<hr className="mb-2" />
+#### Principles of Molecular Docking
+
+- Understanding the basic principles of molecular docking.
+- Different types of molecular docking algorithms and scoring functions.
+
+#### Bioinformatics Tools for Molecular Docking
+
+- Introduction to molecular docking software (e.g., **AutoDock**, **AutoDock** **Vina**).
+- Preparing protein and ligand structures for docking.
+
+#### Performing Molecular Docking
+
+- Conducting protein-ligand docking simulations.
+- Analyzing docking results and interpreting binding interactions.
+
+#### Molecular Dynamics Simulation
+
+<hr className="mb-2" />
+#### Introduction to Molecular Dynamics (MD)
+
+- Understanding the principles of molecular dynamics simulations.
+- Applications of MD in drug design and biomolecular studies.
+
+#### Bioinformatics Tools for Molecular Dynamics
+
+- Introduction to MD simulation software (e.g., **Schrodinger**, **GROMACS**, **AMBER**, **NAMD**).
+- Preparing biomolecular systems for MD simulations.
+
+#### Running Molecular Dynamics Simulations
+
+- Setting up and running MD simulations.
+- Analyzing MD trajectories and extracting relevant data.
+
+#### Integration of Docking and Dynamics in Drug Design
+
+<hr className="mb-2" />
+#### Virtual Screening and Hit Identification
+
+- Using molecular docking for virtual screening of compound libraries.
+- Filtering and prioritizing potential drug candidates.
+
+#### Free Energy Calculations
+
+- Introduction to free energy calculation methods.
+- Enhancing accuracy with binding free energy calculations.
+
+#### Advanced Topics in Molecular Drug Design
+
+<hr className="mb-2" />
+
+#### Personalized Medicine and Drug Design
+
+- Exploring the concept of personalized medicine.
+- Customizing drug design approaches for individual patients.
+
+### RNA-seq
+
+#### Introduction to RNA-Seq Analysis
+
+<hr className="mb-2" />
+#### Introduction to RNA-Seq
+
+- Understanding RNA-Seq technology and its applications in genomics.
+- Differences between RNA-Seq and other sequencing methods (e.g., DNA-Seq).
+
+#### RNA-Seq Experimental Design
+
+- Design considerations for RNA-Seq experiments.
+- Sample preparation, library construction, and sequencing platforms.
+
+#### Preprocessing and Quality Control
+
+<hr className="mb-2" />
+
+#### Raw Data Quality Assessment
+
+- Understanding the raw sequencing data formats (FASTQ).
+- Performing quality control (QC) checks using tools like FastQC.
+
+#### Preprocessing of RNA-Seq Data
+
+- Trimming adapters and low-quality bases with tools like Trimmomatic.
+- Quality filtering and read preprocessing.
+
+#### Mapping and Alignment
+
+<hr className="mb-2" />
+
+#### Reference Genome and Transcriptome
+
+- Selecting an appropriate reference genome or transcriptome for mapping.
+- Building custom references if needed.
+
+#### RNA-Seq Read Alignment
+
+- Aligning preprocessed reads to the reference using tools like STAR or HISAT2.
+- Dealing with splice junctions and novel transcripts.
+
+#### Quantification of Gene Expression
+
+<hr className="mb-2" />
+
+#### Gene Expression Estimation
+
+- Counting aligned reads at the gene level using tools like featureCounts or HTSeq.
+- Generating count matrices for downstream analysis.
+
+#### Differential Gene Expression Analysis
+
+- Introduction to differential expression analysis.
+- Using tools like DESeq2 or edgeR to identify differentially expressed genes.
+
+#### Functional Analysis and Visualization
+
+<hr className="mb-2" />
+
+#### Gene Ontology (GO) Enrichment Analysis
+
+- Understanding GO terms and their significance in functional analysis.
+- Using tools like GOseq or topGO for GO enrichment analysis.
+
+#### Pathway Analysis
+
+- Introduction to pathway analysis and its importance in understanding gene functions.
+- Performing pathway analysis using tools like KEGG, Reactome, or GSEA.
+
+#### Data Visualization
+
+- Creating various plots for RNA-Seq data visualization (e.g., heatmaps, volcano plots).
+- Utilizing tools like R and Python libraries for data visualization.
+
+#### Advanced Topics in RNA-Seq Analysis
+
+<hr className="mb-2" />
+
+#### Isoform-level Analysis
+
+- Quantifying gene isoforms using tools like Salmon or Kallisto.
+- Analyzing alternative splicing events.
+
+#### Long Non-Coding RNA (lncRNA) Analysis
+
+- Identifying and characterizing long non-coding RNAs in RNA-Seq data.
+- Special considerations for lncRNA analysis.
+
+#### Integration with other Omics Data
+
+- Integrating RNA-Seq data with other genomics data (e.g., DNA-Seq, ChIP-Seq) for comprehensive analysis.

@@ -1,0 +1,153 @@
+---
+title: Uploading Image or File to Aws S3 Bucket
+publishedAt: "2023-12-13"
+summary: Uploading Image or File to Aws S3 Bucket.
+---
+
+In this guide, we will walk through the process of uploading an image or file to an AWS S3 bucket. Amazon Simple Storage Service (S3) is a widely used object storage service that allows you to store and retrieve any amount of data.
+
+## Prerequisites
+
+Before we begin, make sure you have the following prerequisites:
+
+- An AWS account with S3 bucket created.
+- AWS Access Key ID and Secret Access Key with S3 permissions.
+- Node.js installed on your machine.
+
+## Step 1: Install the AWS SDK
+
+To interact with AWS S3 using Node.js, we need to install the AWS SDK. Open your terminal and run the following command:
+
+```bash
+npm install aws-sdk
+```
+
+or just install s3 client
+
+```bash
+npm i @aws-sdk/client-s3
+```
+
+## Step 2: Set Up AWS S3 Credentials
+
+Create a file named `utils/s3_config.js` in the root of your project and add your AWS S3 credentials:
+
+```JavaScript
+    const bucketName = process.env.S3_BUCKET_NAME;
+    const bucketRegion = process.env.S3_BUCKET_REGION;
+    const accessKeyId = process.env.S3_ACCESS_KEY_ID;
+    const secretAccessKey = process.env.S3_SECRET_ACCESS_KEY;
+```
+
+Replace S3_BUCKET_NAME, S3_BUCKET_REGION, S3_ACCESS_KEY_ID and S3_SECRET_ACCESS_KEY with your actual s3 credentials.
+
+## Step 3: Create an S3 Upload Function
+
+Now, create a JavaScript file (e.g., s3_upload.js) with the following content:
+
+First we need to configure s3 client-
+
+```JavaScript
+    // configure s3Client
+    const s3 = new S3Client({
+    credentials: {
+        accessKeyId: accessKeyId,
+        secretAccessKey: secretAccessKey,
+    },
+    region: bucketRegion,
+    });
+```
+
+Then we need to configure multer to process the multipart/form-data from client side. To do that first create another file `multer_config.js` to the utils folder then add the following content-
+
+```JavaScript
+
+const multer = require("multer");
+
+const storage = multer.memoryStorage(); // Use memory storage to store the file buffer
+
+// file filter
+const fileFilter = (req, file, cb) => {
+  if (file.mimetype === "image/jpeg" || file.mimetype === "image/png") {
+    cb(null, true);
+  } else {
+    cb(new Error("Invalid Mime Type, only JPEG and PNG"), false);
+  }
+};
+
+// upload handler
+exports.uploadeFileHandler = multer({
+  storage: storage,
+  fileFilter: fileFilter,
+});
+```
+
+Now we can use this multer config to upload file to s3 bucket. To do that first import the multer and s3 config file to a new middleware file `controller/uploadController.js`-
+
+```JavaScript
+
+const { DataModel } = require("../db/model/data.model");
+const { PutObjectCommand } = require("@aws-sdk/client-s3");
+const sharp = require("sharp");
+const {
+  bucketName,
+  randomFileName,
+  s3,
+} = require("../utils/s3_config");
+
+
+// Create a handler to upload file to s3 bucket and save the file name and body data to database
+const uploadeFile = async (req, res) => {
+  try {
+    console.log("req.file", req.file);
+    console.log("req.body received by server", req.body);
+
+    req.file.buffer;
+
+    //resize image
+    const buffer = await sharp(req.file.buffer)
+      .resize({ height: 1920, width: 1080, fit: "contain" })
+      .toBuffer();
+
+    const imageName = randomFileName() + imageFile.originalname;
+    const imageFile = req.file;
+
+    //   upload only image to s3
+    const params = {
+      Bucket: bucketName,
+      Key: imageName,
+      Body: buffer,
+      ContentType: imageFile.mimetype,
+    };
+
+    const command = new PutObjectCommand(params);
+
+    // send to s3
+    await s3.send(command);
+
+    // to add the image url extract data from the body
+    const { image, title } = req.body;
+
+    // create a new collection object with the data
+    const exhibitionData = {
+      title,
+      picture: imageName,
+    };
+
+    const exhibition = await DataModel.create(exhibitionData);
+    res.status(200).json({ message: "success" });
+  } catch (error) {
+    console.error(error);
+  }
+};
+```
+
+## Step 4: add the middleware to the route
+
+```JavaScript
+router.post("/image", uploadeFileHandler.single("image"), uploadeFile);
+```
+
+This will upload the specified image/file to your AWS S3 bucket.
+
+Congratulations! You've successfully uploaded an image/file to an AWS S3 bucket using Node.js.This will upload the specified image/file to your AWS S3 bucket.

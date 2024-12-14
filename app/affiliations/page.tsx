@@ -1,7 +1,7 @@
 import experiencesData from "lib/dataExperience";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { parse, isValid } from "date-fns";
+import {parse, isValid, format} from "date-fns";
 
 export const metadata: Metadata = {
   title: "Affiliations",
@@ -12,6 +12,9 @@ export const metadata: Metadata = {
 async function expData() {
   return experiencesData;
 }
+
+const date = new Date();
+const currentDate = format(date, "dd MMM yyyy");
 
 function ExpCard({
   id,
@@ -36,7 +39,12 @@ function ExpCard({
         </Link>
       </h5>
       <p className="my-0 text-sm">{location}</p>
-      <p className="my-2 text-sm">{time}</p>
+      {/*<p className="my-2 text-sm">{time}</p>*/}
+      <p className="my-2 text-sm">
+        {time.includes(currentDate)
+          ? time.replace(currentDate, "Present")
+          : time}
+      </p>
       {info ? (
         <p className="my-0 text-sm">{info}</p>
       ) : (

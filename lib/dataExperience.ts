@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
+import {format} from "date-fns";
 
 const khuLogo = "/org_logos/khu.png";
 const abexLogo = "/org_logos/abex.png";
@@ -10,6 +11,9 @@ const cobLogo = "/org_logos/cob.jpg";
 const bsmiabfirstLogo = "/org_logos/fstconf.jpg";
 const ibsLogo = "/org_logos/IBS.jpg";
 const bsmiabSecondLogo = "/org_logos/secconf.jpg";
+
+const date = new Date();
+const currentDate = format(date, "dd MMM yyyy");
 
 const experiencesData = {
   education: [
@@ -24,17 +28,17 @@ const experiencesData = {
     //   time: " 1 Mar 2023 - Current",
     //   info: "Got admitted in the last winter semester",
     // },
-    {
-      id: uuidv4(),
-      img: khuLogo,
-      title: "MSc",
-      institute:
-        "Department of Pathology, College of Korean Medicine, Kyung Hee University",
-      weblink: "https://khu.elsevierpure.com/en/persons/bonglee-kim/network/",
-      address: "Seoul, Republic of Korea",
-      time: " 1 Sept 2022 - 28 Feb 2023",
-      info: "Got full funded admission but unable to join because of visa difficulties. Continued 6 month through online.",
-    },
+    // {
+    //   id: uuidv4(),
+    //   img: khuLogo,
+    //   title: "MSc",
+    //   institute:
+    //     "Department of Pathology, College of Korean Medicine, Kyung Hee University",
+    //   weblink: "https://khu.elsevierpure.com/en/persons/bonglee-kim/network/",
+    //   address: "Seoul, Republic of Korea",
+    //   time: " 1 Sept 2022 - 28 Feb 2023",
+    //   info: "Got full funded admission but unable to join because of visa difficulties. Continued 6 month through online.",
+    // },
     {
       id: uuidv4(),
       img: khuLogo,
@@ -56,7 +60,7 @@ const experiencesData = {
       institute: "Dr. Hannan’s Lab, Bangladesh Agricultural University,",
       weblink: "https://bau.edu.bd/profile/BMB1010",
       address: "Mymensingh, Bangladesh",
-      time: "1 Apr 2023 – Current",
+      time: `1 Apr 2023 – ${currentDate}`,
       focus:
         "Define research questions to estimate the potential prevention of Dementia, Alzheimer’s and Diabetes mellitus type 2 disease by molecular pathway analysis using network pharmacology and computational approaches, Perform molecular dynamic simulation and genome sequencing data analysis.",
     },
@@ -130,7 +134,7 @@ const experiencesData = {
       title: "Founder and CEO",
       institute: "ExomeIT",
       weblink: "https://www.exomeit.com/about",
-      time: "9 Dec 2020 - Current",
+      time: `9 Dec 2020 - ${currentDate}`,
       address: "Dhaka, Bangladesh",
       focus: "Executing the overall operations",
     },
@@ -138,10 +142,10 @@ const experiencesData = {
     {
       id: uuidv4(),
       img: cobLogo,
-      title: "Chief Creative & Branding Officer",
+      title: "Chief Operating Officer",
       institute: "Community of Biotechnology (COB)",
       weblink: "https://www.cobt.org/about/leaders",
-      time: "1 Sep 2020 – 30 Dec 2022",
+      time: `1 Sep 2020 – ${currentDate}`,
       address: "Dhaka, Bangladesh",
       focus:
         " Managing and Chief of Media and Communication Department, Department of Publication, Department of Visual Arts",
@@ -205,7 +209,7 @@ const experiencesData = {
       weblink: "https://www.bsmiab.org/conference-2020/",
       time: "6 Nov 2020 - 8 Nov 2020",
       address: "Dhaka, Bangladesh",
-      focus: "Executive mamber and organizing and managing the team operations",
+      focus: "Executive member and organizing and managing the team operations",
     },
 
     {
@@ -229,7 +233,7 @@ const experiencesData = {
         "https://www.cobt.org/events/2nd-bsmiab-cob-international-conference-on-covid-1/",
       time: "12 Nov 2021 - 14 Nov 2021",
       address: "Dhaka, Bangladesh",
-      focus: "Executive mamber and organizing and managing the team operations",
+      focus: "Executive member and organizing and managing the team operations",
     },
   ],
 };

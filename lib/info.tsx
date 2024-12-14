@@ -5,7 +5,7 @@ export const avatar = me;
 export const about = () => {
   return (
     <>
-      Hey, I'm Hasanur, a Graduate Research Assistant at BAU, where working on
+      Hey, I'm Hasanur, a Research Assistant at BAU, where working on
       computational biology in cancer therapeutics.
     </>
   );

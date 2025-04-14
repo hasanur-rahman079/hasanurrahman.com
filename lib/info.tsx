@@ -15,7 +15,7 @@ export const bio = () => {
     <>
       I'm a Biotechnology and Genetic Engineering graduate interested in Cancer
       Informatics, Genomics, Molecular Biology and Computational Biology.
-      Currently seeking for PhD position in these fields.
+      Currently seeking for graduate position in these fields.
     </>
   );
 };

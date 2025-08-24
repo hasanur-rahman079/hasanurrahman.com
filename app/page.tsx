@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowIcon, ViewsIcon } from "@/components/icons";
-import { SiResearchgate } from "react-icons/si";
+import { SiResearchgate, SiGithub } from "react-icons/si";
 import { RiDoubleQuotesL } from "react-icons/ri";
 import { name, about, bio, avatar } from "@/lib/info";
 import { HiOutlineArrowDownTray } from "react-icons/hi2";
@@ -9,14 +9,39 @@ import { getBlogViews } from "@/lib/metrics";
 
 export const revalidate = 10;
 
+// Function to fetch GitHub contributions
+async function getGitHubContributions() {
+  try {
+    const response = await fetch('https://api.github.com/users/hasanur-rahman079', {
+      next: { revalidate: 3600 }, // Cache for 1 hour
+    });
+    
+    if (!response.ok) {
+      throw new Error('Failed to fetch GitHub data');
+    }
+    
+    const data = await response.json();
+
+    return data.public_repos || 0;
+  } catch (error) {
+    console.error('Error fetching GitHub data:', error);
+    return 0;
+  }
+}
+
 export default async function Home() {
   let views = 0;
+  let githubContributions = 0;
 
   try {
-    const blogViews = await getBlogViews();
-    views = blogViews ?? 0; // Set views to 0 if blogViews is undefined or null
+    const [blogViews, githubData] = await Promise.all([
+      getBlogViews(),
+      getGitHubContributions()
+    ]);
+    views = blogViews ?? 0;
+    githubContributions = githubData;
   } catch (error) {
-    console.error("Error fetching views:", error);
+    console.error("Error fetching data:", error);
   }
 
   return (
@@ -27,7 +52,7 @@ export default async function Home() {
       </p>
       <div className="flex items-start md:items-center my-8 flex-col md:flex-row">
         <Image
-          alt={name}
+          alt={`${name} - Professional Portrait`}
           className="rounded-full grayscale"
           src={avatar}
           placeholder="blur"
@@ -40,9 +65,10 @@ export default async function Home() {
             target="_blank"
             href="https://scholar.google.com/citations?hl=en&authuser=1&user=l2q048wAAAAJ"
             className="flex items-center gap-2"
+            title="Google Scholar Profile - MD. Hasanur Rahman"
           >
             <RiDoubleQuotesL />
-            {` 877 citations all time`}
+            {` 1002 citations all time`}
           </a>
 
           <a
@@ -50,9 +76,21 @@ export default async function Home() {
             target="_blank"
             href="https://www.researchgate.net/profile/Md-Rahman-262"
             className="flex items-center gap-2"
+            title="ResearchGate Profile - Hasanur Rahman"
           >
             <SiResearchgate />
             {` 15,191 reads on researchgate`}
+          </a>
+
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://github.com/hasanur-rahman079"
+            className="flex items-center gap-2"
+            title="GitHub Profile - Hasanur Rahman"
+          >
+            <SiGithub />
+            {` ${githubContributions.toLocaleString()} repositories on GitHub`}
           </a>
 
           <Link href="/blog" className="flex items-center">
@@ -72,6 +110,7 @@ export default async function Home() {
             rel="noopener noreferrer"
             target="_blank"
             href="https://twitter.com/hasanur069"
+            title="Follow Hasanur Rahman on Twitter"
           >
             <ArrowIcon />
             <p className="h-7">follow me on twitter</p>
@@ -83,6 +122,7 @@ export default async function Home() {
             rel="noopener noreferrer"
             target="_blank"
             href="mailto:hasanurrahman.bge@gmail.com"
+            title="Contact Hasanur Rahman via Email"
           >
             <ArrowIcon />
             <p className="h-7">send an email</p>
@@ -94,6 +134,7 @@ export default async function Home() {
             rel="noopener noreferrer"
             target="_blank"
             href="https://www.linkedin.com/in/hasanur069/"
+            title="Connect with Hasanur Rahman on LinkedIn"
           >
             <ArrowIcon />
             <p className="h-7">connect on linkedin</p>
@@ -105,6 +146,7 @@ export default async function Home() {
             rel="noopener noreferrer"
             target="_blank"
             href="/cv_hasanur.pdf"
+            title="Download Hasanur Rahman's CV"
           >
             <HiOutlineArrowDownTray />
             <p className="h-7 ml-1">download my cv</p>

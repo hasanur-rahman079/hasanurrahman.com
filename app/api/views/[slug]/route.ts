@@ -2,10 +2,8 @@ import { NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
 
 // GET and POST methods
-export async function GET(
-  req: Request,
-  { params }: { params: { slug: string } }
-) {
+export async function GET(req: Request, props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const slug = params.slug;
 
   if (!slug) {
@@ -27,10 +25,8 @@ export async function GET(
   return NextResponse.json({ total: views });
 }
 
-export async function POST(
-  req: Request,
-  { params }: { params: { slug: string } }
-) {
+export async function POST(req: Request, props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const slug = params.slug;
 
   const { data, error } = await supabase

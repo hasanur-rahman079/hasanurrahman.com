@@ -15,11 +15,12 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Params;
-}): Promise<Metadata | undefined> {
+export async function generateMetadata(
+  props: {
+    params: Promise<Params>;
+  }
+): Promise<Metadata | undefined> {
+  const params = await props.params;
   const post = allBlogs.find((post) => post.slug === params.slug);
   if (!post) {
     return;
@@ -33,8 +34,8 @@ export async function generateMetadata({
     slug,
   } = post;
   const ogImage = image
-    ? `https://hasanurrahman.com${image}`
-    : `https://hasanurrahman.com/api/og?title=${title}`;
+    ? `https://www.hasanurrahman.me${image}`
+    : `https://www.hasanurrahman.me/api/og?title=${title}`;
 
   return {
     title,
@@ -44,7 +45,7 @@ export async function generateMetadata({
       description,
       type: "article",
       publishedTime,
-      url: `https://hasanurrahman.com/blog/${slug}`,
+      url: `https://www.hasanurrahman.me/blog/${slug}`,
       images: [
         {
           url: ogImage,
@@ -60,7 +61,8 @@ export async function generateMetadata({
   };
 }
 
-export default async function Blog({ params }: { params: Params }) {
+export default async function Blog(props: { params: Promise<Params> }) {
+  const params = await props.params;
   const post = allBlogs.find((post) => post.slug === params.slug);
 
   if (!post) {

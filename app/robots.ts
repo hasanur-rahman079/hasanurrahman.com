@@ -3,9 +3,10 @@ export default function robots() {
     rules: [
       {
         userAgent: "*",
+        allow: "/api/og/*"
       },
     ],
-    sitemap: "https://hasanurrahman.com/sitemap.xml",
-    host: "https://hasanurrahman.com",
+    sitemap: "https://www.hasanurrahman.me/sitemap.xml",
+    host: "https://www.hasanurrahman.me",
   };
 }

@@ -20,7 +20,7 @@ async function fetcher<JSON = any>(
 function ViewCounterSkeleton() {
   return (
     <div className="animate-pulse">
-      <div className="h-2 bg-neutral-200 dark:bg-neutral-700 rounded w-12"></div>
+      <div className="h-4 bg-neutral-200 dark:bg-neutral-700 rounded w-24"></div>
     </div>
   );
 }

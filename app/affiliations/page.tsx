@@ -91,12 +91,12 @@ export default async function Affiliations() {
   });
 
   return (
-    <section>
+    <section className="w-full">
       <h1 className="font-bold text-3xl font-serif mb-8">Affiliations</h1>
       <p className="text-neutral-700 dark:text-neutral-300 mt-2 mb-8">
         Here's what experiences i have gained from different institutions
       </p>
-      <div className="prose prose-neutral dark:prose-invert">
+      <div className="prose prose-neutral dark:prose-invert max-w-full">
         <h3 id="computer-office">Education</h3>
         <div className="space-y-4">
           {sortedEducation.map((obj: any) => (

@@ -1,7 +1,8 @@
-import * as React from "react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { useMDXComponent } from "next-contentlayer2/hooks";
+import * as React from "react";
+import { Pre } from "./pre";
 
 const CustomLink = (props: any) => {
   const href = props.href;
@@ -18,7 +19,7 @@ const CustomLink = (props: any) => {
     return <a {...props} />;
   }
 
-  return <a target="_blank" rel="noopener noreferrer" {...props} />;
+  return <a rel="noopener noreferrer" target="_blank" {...props} />;
 };
 
 function RoundedImage(props: any) {
@@ -27,28 +28,28 @@ function RoundedImage(props: any) {
 
 function Callout(props: any) {
   return (
-    <div className="flex bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-lg p-4 my-8">
-      <div className="flex items-center w-4 mr-4">{props.emoji}</div>
-      <div className="w-full callout">{props.children}</div>
+    <div className="my-8 flex rounded-lg border border-neutral-200 bg-neutral-100 p-4 dark:border-neutral-800 dark:bg-neutral-900">
+      <div className="mr-4 flex w-4 items-center">{props.emoji}</div>
+      <div className="callout w-full">{props.children}</div>
     </div>
   );
 }
 
 function ProsCard({ title, pros }: any) {
   return (
-    <div className="border border-emerald-200 dark:border-emerald-900 bg-neutral-50 dark:bg-neutral-900 rounded-xl p-6 my-4 w-full">
+    <div className="my-4 w-full rounded-xl border border-emerald-200 bg-neutral-50 p-6 dark:border-emerald-900 dark:bg-neutral-900">
       <span>{`You might use ${title} if...`}</span>
       <div className="mt-4">
         {pros.map((pro: any) => (
-          <div key={pro} className="flex font-medium items-baseline mb-2">
-            <div className="h-4 w-4 mr-2">
+          <div className="mb-2 flex items-baseline font-medium" key={pro}>
+            <div className="mr-2 h-4 w-4">
               <svg className="h-4 w-4 text-emerald-500" viewBox="0 0 24 24">
                 <g
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
+                  strokeWidth="2"
                 >
                   <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
                   <path d="M22 4L12 14.01l-3-3" />
@@ -65,17 +66,17 @@ function ProsCard({ title, pros }: any) {
 
 function ConsCard({ title, cons }: any) {
   return (
-    <div className="border border-red-200 dark:border-red-900 bg-neutral-50 dark:bg-neutral-900 rounded-xl p-6 my-6 w-full">
+    <div className="my-6 w-full rounded-xl border border-red-200 bg-neutral-50 p-6 dark:border-red-900 dark:bg-neutral-900">
       <span>{`You might not use ${title} if...`}</span>
       <div className="mt-4">
         {cons.map((con: any) => (
-          <div key={con} className="flex font-medium items-baseline mb-2">
-            <div className="h-4 w-4 mr-2">
+          <div className="mb-2 flex items-baseline font-medium" key={con}>
+            <div className="mr-2 h-4 w-4">
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
                 className="h-4 w-4 text-red-500"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
               >
                 <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
               </svg>
@@ -91,6 +92,7 @@ function ConsCard({ title, cons }: any) {
 const components = {
   Image: RoundedImage,
   a: CustomLink,
+  pre: Pre,
   Callout,
   ProsCard,
   ConsCard,

@@ -32,11 +32,11 @@ npm i @aws-sdk/client-s3
 
 Create a file named `utils/s3_config.js` in the root of your project and add your AWS S3 credentials:
 
-```JavaScript
-    const bucketName = process.env.S3_BUCKET_NAME;
-    const bucketRegion = process.env.S3_BUCKET_REGION;
-    const accessKeyId = process.env.S3_ACCESS_KEY_ID;
-    const secretAccessKey = process.env.S3_SECRET_ACCESS_KEY;
+```js title="s3_config.js"
+const bucketName = process.env.S3_BUCKET_NAME;
+const bucketRegion = process.env.S3_BUCKET_REGION;
+const accessKeyId = process.env.S3_ACCESS_KEY_ID;
+const secretAccessKey = process.env.S3_SECRET_ACCESS_KEY;
 ```
 
 Replace S3_BUCKET_NAME, S3_BUCKET_REGION, S3_ACCESS_KEY_ID and S3_SECRET_ACCESS_KEY with your actual s3 credentials.
@@ -47,20 +47,19 @@ Now, create a JavaScript file (e.g., s3_upload.js) with the following content:
 
 First we need to configure s3 client-
 
-```JavaScript
-    // configure s3Client
-    const s3 = new S3Client({
-    credentials: {
+```js title="s3_config.js"
+const s3 = new S3Client({
+credentials: {
         accessKeyId: accessKeyId,
         secretAccessKey: secretAccessKey,
     },
     region: bucketRegion,
-    });
+});
 ```
 
 Then we need to configure multer to process the multipart/form-data from client side. To do that first create another file `multer_config.js` to the utils folder then add the following content-
 
-```JavaScript
+```js title="multer_config.js"
 
 const multer = require("multer");
 
@@ -84,7 +83,7 @@ exports.uploadeFileHandler = multer({
 
 Now we can use this multer config to upload file to s3 bucket. To do that first import the multer and s3 config file to a new middleware file `controller/uploadController.js`-
 
-```JavaScript
+```js title="controller/uploadController.js"
 
 const { DataModel } = require("../db/model/data.model");
 const { PutObjectCommand } = require("@aws-sdk/client-s3");
@@ -144,7 +143,7 @@ const uploadeFile = async (req, res) => {
 
 ## Step 4: add the middleware to the route
 
-```JavaScript
+```js title="routes/upload.js"
 router.post("/image", uploadeFileHandler.single("image"), uploadeFile);
 ```
 

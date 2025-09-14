@@ -38,19 +38,6 @@ html {
   @apply visible;
 }
 
-.prose pre {
-  @apply border border-neutral-800 bg-neutral-900;
-}
-
-.prose code {
-  @apply text-neutral-800 dark:text-neutral-200 px-1 py-0.5 border border-neutral-100 dark:border-neutral-800 rounded-lg bg-neutral-100 dark:bg-neutral-900;
-}
-
-.prose pre code {
-  @apply text-neutral-800 dark:text-neutral-200 p-0;
-  border: initial;
-}
-
 .prose img {
   /* Don't apply styles to next/image */
   @apply m-0;
@@ -76,6 +63,19 @@ pre {
   scrollbar-width: none; /* Firefox */
 }
 
+/* Copy button positioning for code blocks */
+.prose pre {
+  @apply relative;
+}
+
+/* Remove margin between code title and code block */
+.prose [data-rehype-pretty-code-title] {
+  @apply mb-0;
+}
+.prose [data-rehype-pretty-code-title] + div {
+  @apply mt-0;
+}
+
 /* Remove Safari input shadow on mobile */
 input[type="text"],
 input[type="email"] {
@@ -96,12 +96,12 @@ table {
 }
 
 [data-rehype-pretty-code-fragment] code {
-  @apply grid min-w-full break-words rounded-none border-0 bg-transparent p-0 text-sm text-black;
+  @apply grid min-w-full break-words rounded-none border-0 bg-transparent p-0 text-sm;
   counter-reset: line;
   box-decoration-break: clone;
 }
 [data-rehype-pretty-code-fragment] .line {
-  @apply py-1;
+  @apply px-4 py-1;
 }
 [data-rehype-pretty-code-fragment] [data-line-numbers] > .line::before {
   counter-increment: line;
@@ -122,9 +122,15 @@ table {
   @apply rounded-md bg-slate-500 bg-opacity-10 p-1;
 }
 [data-rehype-pretty-code-title] {
-  @apply px-4 py-3 font-mono text-xs font-medium border rounded-t-lg text-neutral-200 border-[#333333] bg-[#1c1c1c];
+  @apply px-4 py-3 font-mono text-xs font-medium border rounded-t-lg text-neutral-200 border-[#333333] bg-[#1c1c1c] mb-0;
 }
 [data-rehype-pretty-code-title] + pre {
+  @apply mt-0 rounded-t-none border-t-0;
+}
+[data-rehype-pretty-code-title] + div {
+  @apply mt-0;
+}
+[data-rehype-pretty-code-title] + div > pre {
   @apply mt-0 rounded-t-none border-t-0;
 }
 

@@ -18,6 +18,9 @@ const navItems = {
   "/research": {
     name: "research",
   },
+  "/dev": {
+    name: "dev",
+  },
   "/affiliations": {
     name: "affiliations",
   },

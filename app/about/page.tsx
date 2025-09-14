@@ -1,68 +1,28 @@
-import Link from "next/link";
 import { HiOutlineArrowDownTray } from "react-icons/hi2";
 
 export default function AboutPage() {
   return (
     <section>
+      {/* Intro Section */}
       <h1 className="font-bold text-3xl font-serif">About Me</h1>
       <p className="my-5 text-neutral-700 dark:text-neutral-300">
-        Hey, I’m MD. Hasanur Rahman, Welcome to my digital garden, where I share
-        my thoughts, projects, and other things that I’d like to share with the
-        world.
+        Hi there! I am MD. Hasanur Rahman. This is my digital notebook, 
+        where i share my thoughts, research projects, and random sparks of curiosity.
+        <br/>
+        <br/>
+        As an young researcher, my research interests are on Genomics on Cancer, Alzheimer’s and their therapeutic options.
+        <br/>
+        <br/>
+        My solo motivation for creating this website is to connect with new individuals while documenting my learning for future references.
         <br />
         <br />
-        Check out the{" "}
-        <Link className="font-semibold hover:underline" href="/research">
-          research page
-        </Link>{" "}
-        for all the research articles I’ve worked on. Most of my working areas
-        are on Cancer, Alzheimer’s Disease and In-silico Drug designing.
-        <br />
-        <br />
-        My sole motivation for creating this website is to connect with new
-        individuals while also documenting my learnings for future references.
-        There are no advertisements or affiliate connections on my website.
-        <br />
-        <br />
-        To say hello, send me an email. Additionally, you can follow me on
-        social medias. All of the links can be found on the home page. I enjoy
-        getting to know new individuals.
+        If you’d like to say hi, just send me an email 
+        (<a className="font-semibold hover:underline" target="_blank" href="mailto:hasanurrahman.bge@gmail.com" title="Contact Hasanur Rahman via Email">hasanurrahman.bge@gmail.com</a>) 
+        or find me on social medias, all links are on the homepage.
       </p>
-      <h3 className="font-bold text-xl font-serif" id="academic_life">
-        Academic Life
-      </h3>
-      <hr />
-      <p className="my-5 text-neutral-700 dark:text-neutral-300">
-        Following my exceptional academic performance in high school, it seems
-        that my educational progress is now experiencing a decline. The reason
-        behind this decline might be attributed to my difficulty in grasping the
-        correlation between classroom lectures and their practical
-        implementation in real-world scenarios. My primary focus has always been
-        on applying what I learn in a practical manner. Consequently, I devoted
-        time to exploring bioinformatics and acquiring proficiency in
-        programming languages such as Python and JavaScript.
-        <br />
-        <br />
-        In August 2015, I concluded my secondary college education specializing
-        in science at{" "}
-        <span className="font-semibold">Cantonment College in Jessore</span>.
-        Initially, I aspired to pursue a medical degree, but my aspirations led
-        me towards the field of Biotechnology and Genetic Engineering.
-        Consequently, I enrolled in the department of{" "}
-        <span className="font-semibold">
-          Biotechnology and Genetic Engineering at Bangabandhu Sheikh Mujibur
-          Rahman Science and Technology University
-        </span>{" "}
-        in Gopalganj, Bangladesh. Due to the impact of the COVID-19 pandemic, my
-        BSc graduation, which was originally planned for December 2020, was
-        delayed and eventually completed in February 2022, achieving a CGPA of
-        2.86/4.00.
-        {/* <br />
-        <br />
-        <span className="text-xs italic">last updated: May 25, 23.</span> */}
-      </p>
+
       <a
-        className="flex items-center hover:text-neutral-700 dark:hover:text-neutral-200 transition-all mb-8"
+        className="flex underline items-center hover:text-neutral-700 dark:hover:text-neutral-200 transition-all mb-8"
         rel="noopener noreferrer"
         target="_blank"
         href="/cv_hasanur.pdf"
@@ -71,49 +31,36 @@ export default function AboutPage() {
         <p className="h-7 ml-1">download my academic resume</p>
       </a>
 
-      <h3 className="font-bold text-xl font-serif" id="career_path">
-        Career Path
+
+      <br />
+      <br />
+
+      {/* Current Employment Section */}
+      <h3 className="font-bold text-xl font-serif" id="academic_life">
+        Current Employment
       </h3>
       <hr />
       <p className="my-5 text-neutral-700 dark:text-neutral-300">
-        I faced a significant loss of motivation during my bachelor's degree due
-        to the disconnection between classroom lectures and their practical
-        application in real-world situations. This led me to consider changing
-        my career path. However, in my third year of undergraduate studies, I
-        discovered a strong interest in the field of human disease research.
-        Determined to learn and contribute to the scientific community, I sought
-        guidance from my academic institution and various organizations. Over
-        the course of several years, I gained valuable experience in the field
-        of human disease research and began dreaming of pursuing higher studies
-        abroad.
+        After completing a research assistant role at Dr. Bonglee Kim’s lab at Kyung Hee University, 
+        Republic of Korea, I joined Dr. Hannan’s lab at Bangladesh Agricultural University. 
+        Here, I am researching the identification of bioactive compounds as therapeutic targets for cancer 
+        and Alzheimer’s disease.
         <br />
         <br />
-        An opportunity presented itself when I received an offer to pursue an{" "}
-        <span className="font-semibold">
-          MSc degree at Kyung Hee University in South Korea
-        </span>
-        . The offer included full funding for research in{" "}
-        <span className="font-semibold">Cancer Material Development</span>,
-        specifically for Korean Cancer Patients. Unfortunately, my plans were
-        hindered as the Korean Embassy in Bangladesh denied my visa application
-        twice, preventing me from entering Korea. Despite this setback, I
-        persevered and completed a six-month-long thesis semester online but
-        unable to continue the rest semesters.
-        <br />
-        <br />
-        Now, I find myself facing new challenges as I strive to find a more
-        suitable place to further my research career.
-        <br />
-        <br />
-        <span className="text-xs italic">last updated: May 25, 23.</span>
+        <span className="text-xs italic">last updated: Sep 14, 25.</span>
       </p>
 
+
+      <br />
+      <br />
+
+      {/* Achievements Section */}  
       <h3 className="font-bold text-xl font-serif" id="achievements">
         Achievements
       </h3>
       <hr />
       <p className="text-neutral-700 dark:text-neutral-300 mt-2 mb-8">
-        Here's some of my notable accomplishments from my little contributions
+        Here's some of my notable accomplishments from the little contributions
         in science.
       </p>
       <div className="prose prose-neutral dark:prose-invert">
@@ -138,6 +85,7 @@ export default function AboutPage() {
             Prize on campus 2019.
           </li>
         </ul>
+        <span className="text-xs italic">last updated: Mar 20, 23.</span>
       </div>
     </section>
   );

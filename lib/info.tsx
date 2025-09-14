@@ -5,17 +5,17 @@ export const avatar = me;
 export const about = () => {
   return (
     <>
-      Hey, I'm Hasanur, a Research Assistant at BAU, where working on
-      computational biology in cancer therapeutics.
+      Hi, I'm Hasanur, a Research Assistant at Bangladesh Agriculture University (BAU) 
+      exploring the fascinating world of computational biology and cancer therapeutics.
     </>
   );
 };
 export const bio = () => {
   return (
     <>
-      I'm a Biotechnology and Genetic Engineering graduate interested in Cancer
-      Informatics, Genomics, Molecular Biology and Computational Biology.
-      Currently seeking for graduate position in these fields.
+      With a background in Biotechnology and Genetic Engineering, 
+      I focus on Cancer Informatics, Genomics, and Molecular Biology. 
+      Currently seeking a graduate position where curiosity meets computation (and maybe free coffee :-D ).
     </>
   );
 };

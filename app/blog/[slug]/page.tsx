@@ -68,7 +68,6 @@ export default async function Blog(props: { params: Promise<Params> }) {
   if (!post) {
     notFound();
   }
-  console.log(post);
 
   return (
     <section>

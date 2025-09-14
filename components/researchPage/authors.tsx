@@ -56,7 +56,6 @@ export default function PubAuthors({ pcode }: PubAuthorsProps) {
               {name &&
                 name.map((names, index) => {
                   const nameList = names["credit-name"];
-                  //   console.log(nameList.value);
 
                   return (
                     <div className="block" key={index}>

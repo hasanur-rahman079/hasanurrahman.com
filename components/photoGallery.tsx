@@ -64,14 +64,14 @@ export default function PhotoGallery({ images }: PhotoGalleryProps) {
 
   const loadMore = () => {
     if (loading) return;
-    
+
     setLoading(true);
     setTimeout(() => {
       const nextPage = currentPage + 1;
       const startIndex = 0;
       const endIndex = nextPage * imagesPerPage;
       const newImages = images.resources.slice(startIndex, endIndex);
-      
+
       setDisplayedImages(newImages);
       setCurrentPage(nextPage);
       setHasMore(endIndex < images.resources.length);
@@ -94,7 +94,7 @@ export default function PhotoGallery({ images }: PhotoGalleryProps) {
           const title = obj.title || obj.filename || "Image";
           const description = obj.des || "";
           const location = obj.location || "";
-          
+
           return (
             <a
               className="flex flex-wrap p-2"

@@ -6,19 +6,28 @@ export default function AboutPage() {
       {/* Intro Section */}
       <h1 className="font-bold text-3xl font-serif">About Me</h1>
       <p className="my-5 text-neutral-700 dark:text-neutral-300">
-        Hi there! I am MD. Hasanur Rahman. This is my digital notebook, 
-        where i share my thoughts, research projects, and random sparks of curiosity.
-        <br/>
-        <br/>
-        As an young researcher, my research interests are on Genomics on Cancer, Alzheimer’s and their therapeutic options.
-        <br/>
-        <br/>
-        My solo motivation for creating this website is to connect with new individuals while documenting my learning for future references.
+        Hi there! I am MD. Hasanur Rahman. This is my digital notebook, where i
+        share my thoughts, research projects, and random sparks of curiosity.
         <br />
         <br />
-        If you’d like to say hi, just send me an email 
-        (<a className="font-semibold hover:underline" target="_blank" href="mailto:hasanurrahman.bge@gmail.com" title="Contact Hasanur Rahman via Email">hasanurrahman.bge@gmail.com</a>) 
-        or find me on social medias, all links are on the homepage.
+        As an young researcher, my research interests are on Genomics on Cancer,
+        Alzheimer’s and their therapeutic options.
+        <br />
+        <br />
+        My solo motivation for creating this website is to connect with new
+        individuals while documenting my learning for future references.
+        <br />
+        <br />
+        If you’d like to say hi, just send me an email (
+        <a
+          className="font-semibold hover:underline"
+          target="_blank"
+          href="mailto:hasanurrahman.bge@gmail.com"
+          title="Contact Hasanur Rahman via Email"
+        >
+          hasanurrahman.bge@gmail.com
+        </a>
+        ) or find me on social medias, all links are on the homepage.
       </p>
 
       <a
@@ -31,7 +40,6 @@ export default function AboutPage() {
         <p className="h-7 ml-1">download my academic resume</p>
       </a>
 
-
       <br />
       <br />
 
@@ -41,20 +49,20 @@ export default function AboutPage() {
       </h3>
       <hr />
       <p className="my-5 text-neutral-700 dark:text-neutral-300">
-        After completing a research assistant role at Dr. Bonglee Kim’s lab at Kyung Hee University, 
-        Republic of Korea, I joined Dr. Hannan’s lab at Bangladesh Agricultural University. 
-        Here, I am researching the identification of bioactive compounds as therapeutic targets for cancer 
+        After completing a research assistant role at Dr. Bonglee Kim’s lab at
+        Kyung Hee University, Republic of Korea, I joined Dr. Hannan’s lab at
+        Bangladesh Agricultural University. Here, I am researching the
+        identification of bioactive compounds as therapeutic targets for cancer
         and Alzheimer’s disease.
         <br />
         <br />
         <span className="text-xs italic">last updated: Sep 14, 25.</span>
       </p>
 
-
       <br />
       <br />
 
-      {/* Achievements Section */}  
+      {/* Achievements Section */}
       <h3 className="font-bold text-xl font-serif" id="achievements">
         Achievements
       </h3>

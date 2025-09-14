@@ -17,10 +17,11 @@ export const metadata: Metadata = {
     default: "MD. Hasanur Rahman - Researcher, Developer & Entrepreneur",
     template: "%s | MD. Hasanur Rahman",
   },
-  description: "MD. Hasanur Rahman (Hasanur) is a distinguished researcher, developer, and entrepreneur. Explore his research publications, bioinformatics work, and professional achievements.",
+  description:
+    "MD. Hasanur Rahman (Hasanur) is a distinguished researcher, developer, and entrepreneur. Explore his research publications, bioinformatics work, and professional achievements.",
   keywords: [
     "MD. Hasanur Rahman",
-    "Hasanur Rahman", 
+    "Hasanur Rahman",
     "Hasanur",
     "Hasan",
     "Md. Hasanur Rahman",
@@ -33,14 +34,15 @@ export const metadata: Metadata = {
     "Bangladesh",
     "research publications",
     "Google Scholar",
-    "ResearchGate"
+    "ResearchGate",
   ],
   authors: [{ name: "MD. Hasanur Rahman" }],
   creator: "MD. Hasanur Rahman",
   publisher: "MD. Hasanur Rahman",
   openGraph: {
     title: "MD. Hasanur Rahman - Researcher, Developer & Entrepreneur",
-    description: "MD. Hasanur Rahman (Hasanur) is a distinguished researcher, developer, and entrepreneur. Explore his research publications, bioinformatics work, and professional achievements.",
+    description:
+      "MD. Hasanur Rahman (Hasanur) is a distinguished researcher, developer, and entrepreneur. Explore his research publications, bioinformatics work, and professional achievements.",
     url: "https://www.hasanurrahman.me",
     siteName: "MD. Hasanur Rahman",
     images: [
@@ -67,7 +69,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     title: "MD. Hasanur Rahman - Researcher, Developer & Entrepreneur",
-    description: "MD. Hasanur Rahman (Hasanur) is a distinguished researcher, developer, and entrepreneur.",
+    description:
+      "MD. Hasanur Rahman (Hasanur) is a distinguished researcher, developer, and entrepreneur.",
     card: "summary_large_image",
     creator: "@hasanur069",
   },
@@ -92,27 +95,34 @@ export default function RootLayout({
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Person",
-    "name": "MD. Hasanur Rahman",
-    "alternateName": ["Hasanur Rahman", "Hasanur", "Hasan"],
-    "url": "https://www.hasanurrahman.me",
-    "image": "https://www.hasanurrahman.me/avatar.jpg",
-    "sameAs": [
+    name: "MD. Hasanur Rahman",
+    alternateName: ["Hasanur Rahman", "Hasanur", "Hasan"],
+    url: "https://www.hasanurrahman.me",
+    image: "https://www.hasanurrahman.me/avatar.jpg",
+    sameAs: [
       "https://scholar.google.com/citations?hl=en&authuser=1&user=l2q048wAAAAJ",
       "https://www.researchgate.net/profile/Md-Rahman-262",
       "https://twitter.com/hasanur069",
-      "https://www.linkedin.com/in/hasanur069/"
+      "https://www.linkedin.com/in/hasanur069/",
     ],
-    "jobTitle": "Researcher, Developer, Entrepreneur",
-    "worksFor": {
+    jobTitle: "Researcher, Developer, Entrepreneur",
+    worksFor: {
       "@type": "Organization",
-      "name": "Independent Researcher"
+      name: "Independent Researcher",
     },
-    "description": "MD. Hasanur Rahman is a distinguished researcher, developer, and entrepreneur with expertise in bioinformatics and computational biology.",
-    "knowsAbout": ["Bioinformatics", "Computational Biology", "Research", "Development", "Entrepreneurship"],
-    "address": {
+    description:
+      "MD. Hasanur Rahman is a distinguished researcher, developer, and entrepreneur with expertise in bioinformatics and computational biology.",
+    knowsAbout: [
+      "Bioinformatics",
+      "Computational Biology",
+      "Research",
+      "Development",
+      "Entrepreneurship",
+    ],
+    address: {
       "@type": "PostalAddress",
-      "addressCountry": "BD"
-    }
+      addressCountry: "BD",
+    },
   };
 
   return (

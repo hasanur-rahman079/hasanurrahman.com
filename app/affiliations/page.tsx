@@ -1,7 +1,7 @@
 import experiencesData from "lib/dataExperience";
 import type { Metadata } from "next";
 import Link from "next/link";
-import {parse, isValid, format} from "date-fns";
+import { parse, isValid, format } from "date-fns";
 
 export const metadata: Metadata = {
   title: "Affiliations",

@@ -3,7 +3,7 @@ export default function robots() {
     rules: [
       {
         userAgent: "*",
-        allow: "/api/og/*"
+        allow: "/api/og/*",
       },
     ],
     sitemap: "https://www.hasanurrahman.me/sitemap.xml",

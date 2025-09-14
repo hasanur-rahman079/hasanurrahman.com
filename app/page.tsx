@@ -12,19 +12,22 @@ export const revalidate = 10;
 // Function to fetch GitHub contributions
 async function getGitHubContributions() {
   try {
-    const response = await fetch('https://api.github.com/users/hasanur-rahman079', {
-      next: { revalidate: 3600 }, // Cache for 1 hour
-    });
-    
+    const response = await fetch(
+      "https://api.github.com/users/hasanur-rahman079",
+      {
+        next: { revalidate: 3600 }, // Cache for 1 hour
+      }
+    );
+
     if (!response.ok) {
-      throw new Error('Failed to fetch GitHub data');
+      throw new Error("Failed to fetch GitHub data");
     }
-    
+
     const data = await response.json();
 
     return data.public_repos || 0;
   } catch (error) {
-    console.error('Error fetching GitHub data:', error);
+    console.error("Error fetching GitHub data:", error);
     return 0;
   }
 }
@@ -36,7 +39,7 @@ export default async function Home() {
   try {
     const [blogViews, githubData] = await Promise.all([
       getBlogViews(),
-      getGitHubContributions()
+      getGitHubContributions(),
     ]);
     views = blogViews ?? 0;
     githubContributions = githubData;
@@ -47,9 +50,7 @@ export default async function Home() {
   return (
     <section>
       <h1 className="font-bold text-3xl font-serif">{name}</h1>
-      <p className="my-5 text-neutral-800 dark:text-neutral-200">
-        {about()}
-      </p>
+      <p className="my-5 text-neutral-800 dark:text-neutral-200">{about()}</p>
       <div className="flex items-start md:items-center my-8 flex-col md:flex-row">
         <Image
           alt={`${name} - Professional Portrait`}
@@ -100,9 +101,7 @@ export default async function Home() {
         </div>
       </div>
 
-      <p className="my-5 text-neutral-800 dark:text-neutral-200">
-        {bio()}
-      </p>
+      <p className="my-5 text-neutral-800 dark:text-neutral-200">{bio()}</p>
       <ul className="flex flex-col md:flex-row mt-8 space-x-0 md:space-x-4 space-y-2 md:space-y-0 font-sm text-neutral-500 dark:text-neutral-400">
         <li>
           <a

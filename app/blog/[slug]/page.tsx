@@ -15,11 +15,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata(
-  props: {
-    params: Promise<Params>;
-  }
-): Promise<Metadata | undefined> {
+export async function generateMetadata(props: {
+  params: Promise<Params>;
+}): Promise<Metadata | undefined> {
   const params = await props.params;
   const post = allBlogs.find((post) => post.slug === params.slug);
   if (!post) {

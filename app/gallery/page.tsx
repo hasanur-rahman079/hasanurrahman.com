@@ -5,10 +5,12 @@ import { v2 as cloudinary } from "cloudinary";
 
 export const metadata: Metadata = {
   title: "Gallery - MD. Hasanur Rahman",
-  description: "Capturing Memorable Moments: Conference Participants, Workshop Trainees, and Travel Adventures",
+  description:
+    "Capturing Memorable Moments: Conference Participants, Workshop Trainees, and Travel Adventures",
   openGraph: {
     title: "Gallery - MD. Hasanur Rahman",
-    description: "Capturing Memorable Moments: Conference Participants, Workshop Trainees, and Travel Adventures",
+    description:
+      "Capturing Memorable Moments: Conference Participants, Workshop Trainees, and Travel Adventures",
     url: "https://www.hasanurrahman.me/gallery",
     siteName: "MD. Hasanur Rahman",
     images: [
@@ -40,8 +42,8 @@ export default async function GalleryPage() {
       <section>
         <h1 className="font-bold text-3xl font-serif mb-8">Gallery</h1>
         <p className="text-neutral-700 dark:text-neutral-300 mt-2 mb-8">
-          Capturing Memorable Moments: Conference Participants, Workshop Trainees,
-          and Travel Adventures
+          Capturing Memorable Moments: Conference Participants, Workshop
+          Trainees, and Travel Adventures
         </p>
 
         <PhotoGallery images={resources} />
@@ -49,15 +51,15 @@ export default async function GalleryPage() {
     );
   } catch (error) {
     console.error("Error loading gallery images:", error);
-    
+
     return (
       <section>
         <h1 className="font-bold text-3xl font-serif mb-8">Gallery</h1>
         <p className="text-neutral-700 dark:text-neutral-300 mt-2 mb-8">
-          Capturing Memorable Moments: Conference Participants, Workshop Trainees,
-          and Travel Adventures
+          Capturing Memorable Moments: Conference Participants, Workshop
+          Trainees, and Travel Adventures
         </p>
-        
+
         <div className="text-center py-12">
           <p className="text-neutral-500 dark:text-neutral-400 mb-4">
             Unable to load gallery images at the moment.

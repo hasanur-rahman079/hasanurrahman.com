@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { getContributions, getTotalContributions } from "@/server/github";
 import { SiGithub } from "react-icons/si";
+import GitHubContributionsChart from "@/components/github-contributions-chart";
+import { getContributions, getTotalContributions } from "@/server/github";
 
 export const metadata: Metadata = {
   title: "Dev",
@@ -9,20 +10,22 @@ export const metadata: Metadata = {
 
 export default async function DeveloperPage() {
   const year = new Date().getFullYear();
-  
+
   let totalContributions = 0;
   let allTimeContributions = 0;
-  
+
   try {
     totalContributions = await getContributions(year);
   } catch (error) {
-    console.error('Error fetching current year contributions:', error);
+    // biome-ignore lint/suspicious/noConsole: Error logging is necessary for debugging
+    console.error("Error fetching current year contributions:", error);
   }
-  
+
   try {
     allTimeContributions = await getTotalContributions();
   } catch (error) {
-    console.error('Error fetching total contributions:', error);
+    // biome-ignore lint/suspicious/noConsole: Error logging is necessary for debugging
+    console.error("Error fetching total contributions:", error);
   }
 
   return (
@@ -37,17 +40,21 @@ export default async function DeveloperPage() {
 
       <div className="my-4 space-y-4">
         <p>
-          {totalContributions > 0 ? totalContributions : 'N/A'} github contributions in {year}. Total contributions since Jan 2, 2020 to present: {allTimeContributions > 0 ? allTimeContributions : 'N/A'}
+          {totalContributions > 0 ? totalContributions : "N/A"} github
+          contributions in {year}. Total contributions since Jan 2, 2020 to
+          present: {allTimeContributions > 0 ? allTimeContributions : "N/A"}
         </p>
 
+        <GitHubContributionsChart username="hasanur-rahman079" year={year} />
 
-        <img
-          alt={`GitHub Contributions ${year}`}
-          className="w-full rounded-lg shadow p-2"
-          src={`https://ghchart.rshah.org/38b000/hasanur-rahman079`}
-        />
-
-        <a className="font-semibold underline flex items-center gap-2" href="https://github.com/hasanur-rahman079" rel="noreferrer" target="_blank">More on my github <SiGithub /></a>
+        <a
+          className="flex items-center gap-2 font-semibold underline"
+          href="https://github.com/hasanur-rahman079"
+          rel="noreferrer"
+          target="_blank"
+        >
+          More on my github <SiGithub />
+        </a>
       </div>
 
       <div className="prose prose-neutral dark:prose-invert mt-12">
@@ -91,12 +98,12 @@ export default async function DeveloperPage() {
       <div className="mt-12 space-y-4">
         <p>
           I like building tools that connect biology with software. You’ll find
-          some experiments and side-projects here {" "}
+          some experiments and side-projects here{" "}
           <a
+            className="font-semibold hover:underline"
             href="https://github.com/hasanur-rahman079"
             rel="noreferrer"
             target="_blank"
-            className="font-semibold hover:underline"
           >
             on my GitHub
           </a>

@@ -27,24 +27,28 @@ export async function getContributions(year: number): Promise<number> {
   });
 
   const json = await res.json();
-  
+
   // Add error handling
   if (!res.ok) {
-    console.error('GitHub API response not ok:', res.status, res.statusText);
-    console.error('Response body:', json);
+    console.error("GitHub API response not ok:", res.status, res.statusText);
+    console.error("Response body:", json);
     throw new Error(`GitHub API error: ${res.status}`);
   }
-  
+
   if (json.errors) {
-    console.error('GitHub API errors:', json.errors);
+    console.error("GitHub API errors:", json.errors);
     throw new Error(`GitHub API errors: ${JSON.stringify(json.errors)}`);
   }
-  
-  if (!json.data || !json.data.user || !json.data.user.contributionsCollection) {
-    console.error('Invalid response structure:', json);
-    throw new Error('Invalid response structure from GitHub API');
+
+  if (
+    !json.data ||
+    !json.data.user ||
+    !json.data.user.contributionsCollection
+  ) {
+    console.error("Invalid response structure:", json);
+    throw new Error("Invalid response structure from GitHub API");
   }
-  
+
   return json.data.user.contributionsCollection.contributionCalendar
     .totalContributions;
 }
@@ -83,20 +87,30 @@ export async function getTotalContributions(): Promise<number> {
       });
 
       const json = await res.json();
-      
+
       // Add error handling
       if (!res.ok) {
-        console.error(`GitHub API response not ok for year ${year}:`, res.status, res.statusText);
+        console.error(
+          `GitHub API response not ok for year ${year}:`,
+          res.status,
+          res.statusText
+        );
         continue; // Skip this year and continue with others
       }
-      
+
       if (json.errors) {
         console.error(`GitHub API errors for year ${year}:`, json.errors);
         continue; // Skip this year and continue with others
       }
-      
-      if (json.data && json.data.user && json.data.user.contributionsCollection) {
-        const yearContributions = json.data.user.contributionsCollection.contributionCalendar.totalContributions;
+
+      if (
+        json.data &&
+        json.data.user &&
+        json.data.user.contributionsCollection
+      ) {
+        const yearContributions =
+          json.data.user.contributionsCollection.contributionCalendar
+            .totalContributions;
         totalContributions += yearContributions;
         console.log(`Year ${year}: ${yearContributions} contributions`);
       }
@@ -106,6 +120,8 @@ export async function getTotalContributions(): Promise<number> {
     }
   }
 
-  console.log(`Total contributions from ${startYear} to ${currentYear}: ${totalContributions}`);
+  console.log(
+    `Total contributions from ${startYear} to ${currentYear}: ${totalContributions}`
+  );
   return totalContributions;
 }

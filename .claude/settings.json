@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(grep -r \"cron\\\\|schedule\\\\|interval\\\\|revalidate\" /home/unix/git_repos/hasanurrahman.com --include=*.ts --include=*.tsx --include=*.js --include=*.json)",
+      "Bash(find /home/unix/git_repos/hasanurrahman.com -path */node_modules -prune -o -path */.next -prune -o -path */.contentlayer -prune -o -type f \\\\\\(-name *.json -o -name data* -o -name const* \\\\\\) -print)",
+      "Bash(find /home/unix/git_repos/hasanurrahman.com/public -type f -name *.json)",
+      "Bash(pnpm format:*)",
+      "Bash(pnpm lint:*)",
+      "Bash(pnpm exec:*)"
+    ]
+  }
+}

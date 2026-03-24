@@ -25,9 +25,7 @@ export default function PubAuthors({ pcode }: PubAuthorsProps) {
 
   React.useEffect(() => {
     async function getContributors() {
-      const data = await fetchAuthorsAPI(
-        `https://pub.orcid.org/v3.0/0000-0001-9238-3149/works/${pcode}`
-      );
+      const data = await fetchAuthorsAPI(`/api/orcid/works/${pcode}`);
 
       setContributors(data?.bulk || []);
       setLoading(false);
@@ -39,7 +37,7 @@ export default function PubAuthors({ pcode }: PubAuthorsProps) {
   return (
     <>
       {loading ? (
-        <div className="text-neutral-500 dark:text-neutral-400 pt-2">
+        <div className="pt-2 text-neutral-500 dark:text-neutral-400">
           Loading authors...
         </div>
       ) : (

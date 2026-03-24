@@ -1,0 +1,565 @@
+{
+  "search_metadata": {
+    "id": "69c250a2badf0b437591af00",
+    "status": "Success",
+    "json_endpoint": "https://serpapi.com/searches/E2fOcHJBFXM7zL1Npe2CKw/69c250a2badf0b437591af00.json",
+    "created_at": "2026-03-24 08:51:46 UTC",
+    "processed_at": "2026-03-24 08:51:46 UTC",
+    "google_scholar_author_url": "https://scholar.google.com/citations?user=l2q048wAAAAJ&hl=en",
+    "raw_html_file": "https://serpapi.com/searches/E2fOcHJBFXM7zL1Npe2CKw/69c250a2badf0b437591af00.html",
+    "total_time_taken": 1.43
+  },
+  "search_parameters": {
+    "engine": "google_scholar_author",
+    "author_id": "l2q048wAAAAJ",
+    "hl": "en"
+  },
+  "author": {
+    "name": "MD. Hasanur Rahman",
+    "affiliations": "Research Assistant at Bangladesh Agricultural University",
+    "email": "Verified email at bau.edu.bd",
+    "website": "https://www.hasanurrahman.me/",
+    "interests": [
+      {
+        "title": "Bioinformatics",
+        "link": "https://scholar.google.com/citations?view_op=search_authors&hl=en&mauthors=label:bioinformatics",
+        "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Abioinformatics"
+      },
+      {
+        "title": "Cancer",
+        "link": "https://scholar.google.com/citations?view_op=search_authors&hl=en&mauthors=label:cancer",
+        "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Acancer"
+      },
+      {
+        "title": "Immunology and Therapeutics",
+        "link": "https://scholar.google.com/citations?view_op=search_authors&hl=en&mauthors=label:immunology_and_therapeutics",
+        "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aimmunology_and_therapeutics"
+      }
+    ],
+    "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=view_photo&user=l2q048wAAAAJ&citpid=5"
+  },
+  "articles": [
+    {
+      "title": "Phytochemicals as a complement to cancer chemotherapy: Pharmacological modulation of the autophagy-apoptosis pathway",
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=l2q048wAAAAJ&citation_for_view=l2q048wAAAAJ:blknAaTinKkC",
+      "citation_id": "l2q048wAAAAJ:blknAaTinKkC",
+      "authors": "MA Rahman, MA Hannan, R Dash, MH Rahman, R Islam, MJ Uddin, ...",
+      "publication": "Frontiers in Pharmacology 12, 639628, 2021",
+      "cited_by": {
+        "value": 154,
+        "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=17306165533748185135",
+        "serpapi_link": "https://serpapi.com/search.json?cites=17306165533748185135&engine=google_scholar&hl=en",
+        "cites_id": "17306165533748185135"
+      },
+      "year": "2021"
+    },
+    {
+      "title": "Recent Advances in Ovarian Cancer: Therapeutic Strategies, Potential Biomarkers, and Technological Improvements",
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=l2q048wAAAAJ&citation_for_view=l2q048wAAAAJ:j3f4tGmQtD8C",
+      "citation_id": "l2q048wAAAAJ:j3f4tGmQtD8C",
+      "authors": "S Akter, MA Rahman, MN Hasan, H Akhter, P Noor, R Islam, Y Shin, ...",
+      "publication": "Cells 11 (4), 650, 2022",
+      "cited_by": {
+        "value": 100,
+        "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5330797032026269704",
+        "serpapi_link": "https://serpapi.com/search.json?cites=5330797032026269704&engine=google_scholar&hl=en",
+        "cites_id": "5330797032026269704"
+      },
+      "year": "2022"
+    },
+    {
+      "title": "Molecular pharmacology and therapeutic advances of the pentacyclic triterpene lupeol",
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=l2q048wAAAAJ&citation_for_view=l2q048wAAAAJ:r0BpntZqJG4C",
+      "citation_id": "l2q048wAAAAJ:r0BpntZqJG4C",
+      "authors": "AAM Sohag, MT Hossain, MA Rahaman, P Rahman, MS Hasan, RC Das, ...",
+      "publication": "Phytomedicine 99, 154012, 2022",
+      "cited_by": {
+        "value": 89,
+        "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=10252065274786077420",
+        "serpapi_link": "https://serpapi.com/search.json?cites=10252065274786077420&engine=google_scholar&hl=en",
+        "cites_id": "10252065274786077420"
+      },
+      "year": "2022"
+    },
+    {
+      "title": "p53 Modulation of Autophagy Signaling in Cancer Therapies: Perspectives Mechanism and Therapeutic Targets.",
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=l2q048wAAAAJ&citation_for_view=l2q048wAAAAJ:iH-uZ7U-co4C",
+      "citation_id": "l2q048wAAAAJ:iH-uZ7U-co4C",
+      "authors": "MA Rahman, MN Park, MH Rahman, MM Rashid, R Islam, MJ Uddin, ...",
+      "publication": "Frontiers in Cell and Developmental Biology 10, 761080-761080, 2022",
+      "cited_by": {
+        "value": 85,
+        "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=4615795026298249564",
+        "serpapi_link": "https://serpapi.com/search.json?cites=4615795026298249564&engine=google_scholar&hl=en",
+        "cites_id": "4615795026298249564"
+      },
+      "year": "2022"
+    },
+    {
+      "title": "Targeting natural antioxidant polyphenols to protect neuroinflammation and neurodegenerative diseases: a comprehensive review",
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=l2q048wAAAAJ&citation_for_view=l2q048wAAAAJ:35N4QoGY0k4C",
+      "citation_id": "l2q048wAAAAJ:35N4QoGY0k4C",
+      "authors": "M Jalouli, MA Rahman, P Biswas, H Rahman, AH Harrath, IS Lee, S Kang, ...",
+      "publication": "Frontiers in Pharmacology 16, 1492517, 2025",
+      "cited_by": {
+        "value": 81,
+        "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12598782659678111573",
+        "serpapi_link": "https://serpapi.com/search.json?cites=12598782659678111573&engine=google_scholar&hl=en",
+        "cites_id": "12598782659678111573"
+      },
+      "year": "2025"
+    },
+    {
+      "title": "Potential therapeutic role of phytochemicals to mitigate mitochondrial dysfunctions in Alzheimer’s disease",
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=l2q048wAAAAJ&citation_for_view=l2q048wAAAAJ:mB3voiENLucC",
+      "citation_id": "l2q048wAAAAJ:mB3voiENLucC",
+      "authors": "MA Rahman, MDH Rahman, P Biswas, MS Hossain, R Islam, MA Hannan, ...",
+      "publication": "Antioxidants 10 (23), 2020",
+      "cited_by": {
+        "value": 69,
+        "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1120473251265009796",
+        "serpapi_link": "https://serpapi.com/search.json?cites=1120473251265009796&engine=google_scholar&hl=en",
+        "cites_id": "1120473251265009796"
+      },
+      "year": "2020"
+    },
+    {
+      "title": "Modulatory effects of autophagy on APP processing as a potential treatment target for Alzheimer’s disease",
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=l2q048wAAAAJ&citation_for_view=l2q048wAAAAJ:hFOr9nPyWt4C",
+      "citation_id": "l2q048wAAAAJ:hFOr9nPyWt4C",
+      "authors": "MA Rahman, MS Rahman, MDH Rahman, M Rasheduzzaman, ...",
+      "publication": "Biomedicines 9 (1), 5, 2020",
+      "cited_by": {
+        "value": 69,
+        "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3394292056946185964",
+        "serpapi_link": "https://serpapi.com/search.json?cites=3394292056946185964&engine=google_scholar&hl=en",
+        "cites_id": "3394292056946185964"
+      },
+      "year": "2020"
+    },
+    {
+      "title": "Molecular insights into the multifunctional role of natural compounds: autophagy modulation and cancer prevention",
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=l2q048wAAAAJ&citation_for_view=l2q048wAAAAJ:qUcmZB5y_30C",
+      "citation_id": "l2q048wAAAAJ:qUcmZB5y_30C",
+      "authors": "MA Rahman, MDH Rahman, MS Hossain, P Biswas, R Islam, MJ Uddin, ...",
+      "publication": "Biomedicines 8 (11), 517, 2020",
+      "cited_by": {
+        "value": 60,
+        "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8804454975406823587",
+        "serpapi_link": "https://serpapi.com/search.json?cites=8804454975406823587&engine=google_scholar&hl=en",
+        "cites_id": "8804454975406823587"
+      },
+      "year": "2020"
+    },
+    {
+      "title": "Evaluation of in vitro and in silico anti-inflammatory potential of some selected medicinal plants of Bangladesh against cyclooxygenase-II enzyme",
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=l2q048wAAAAJ&citation_for_view=l2q048wAAAAJ:k_IJM867U9cC",
+      "citation_id": "l2q048wAAAAJ:k_IJM867U9cC",
+      "authors": "MA Islam, MNH Zilani, P Biswas, DA Khan, MH Rahman, R Nahid, ...",
+      "publication": "Journal of Ethnopharmacology 285, 114900, 2022",
+      "cited_by": {
+        "value": 52,
+        "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=4483401452397633638",
+        "serpapi_link": "https://serpapi.com/search.json?cites=4483401452397633638&engine=google_scholar&hl=en",
+        "cites_id": "4483401452397633638"
+      },
+      "year": "2022"
+    },
+    {
+      "title": "An In-Silico Identification of Potential Flavonoids against Kidney Fibrosis Targeting TGFβR-1",
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=l2q048wAAAAJ&citation_for_view=l2q048wAAAAJ:YFjsv_pBGBYC",
+      "citation_id": "l2q048wAAAAJ:YFjsv_pBGBYC",
+      "authors": "MDH Rahman, P Biswas, D Dey, MA Hannan, M Sahabuddin, Y Araf, ...",
+      "publication": "Life 12 (11), 1764, 2022",
+      "cited_by": {
+        "value": 46,
+        "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1280394651754716906",
+        "serpapi_link": "https://serpapi.com/search.json?cites=1280394651754716906&engine=google_scholar&hl=en",
+        "cites_id": "1280394651754716906"
+      },
+      "year": "2022"
+    },
+    {
+      "title": "Analysis of SYK gene as a prognostic biomarker and suggested potential bioactive phytochemicals as an alternative therapeutic option for colorectal cancer: an in-silico …",
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=l2q048wAAAAJ&citation_for_view=l2q048wAAAAJ:JV2RwH3_ST0C",
+      "citation_id": "l2q048wAAAAJ:JV2RwH3_ST0C",
+      "authors": "P Biswas, D Dey, A Rahman, MA Islam, TF Susmi, MA Kaium, MN Hasan, ...",
+      "publication": "Journal of personalized medicine 11 (9), 888, 2021",
+      "cited_by": {
+        "value": 42,
+        "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1140066725192604820",
+        "serpapi_link": "https://serpapi.com/search.json?cites=1140066725192604820&engine=google_scholar&hl=en",
+        "cites_id": "1140066725192604820"
+      },
+      "year": "2021"
+    },
+    {
+      "title": "Protective effects of fucoidan against kidney diseases: Pharmacological insights and future perspectives",
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=l2q048wAAAAJ&citation_for_view=l2q048wAAAAJ:NMxIlDl6LWMC",
+      "citation_id": "l2q048wAAAAJ:NMxIlDl6LWMC",
+      "authors": "MS Zahan, A Hasan, MDH Rahman, KN Meem, A Moni, MA Hannan, ...",
+      "publication": "International Journal of Biological Macromolecules 209, 2119-2129, 2022",
+      "cited_by": {
+        "value": 41,
+        "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3194345400193107260",
+        "serpapi_link": "https://serpapi.com/search.json?cites=3194345400193107260&engine=google_scholar&hl=en",
+        "cites_id": "3194345400193107260"
+      },
+      "year": "2022"
+    },
+    {
+      "title": "A Comprehensive Review of Recent Advancements in Cancer Immunotherapy and Generation of CAR T Cell by CRISPR-Cas9",
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=l2q048wAAAAJ&citation_for_view=l2q048wAAAAJ:bEWYMUwI8FkC",
+      "citation_id": "l2q048wAAAAJ:bEWYMUwI8FkC",
+      "authors": "M Al Saber, P Biswas, D Dey, MA Kaium, MA Islam, MIA Tripty, ...",
+      "publication": "Processes 10 (1), 16, 2021",
+      "cited_by": {
+        "value": 41,
+        "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5539718786763612516",
+        "serpapi_link": "https://serpapi.com/search.json?cites=5539718786763612516&engine=google_scholar&hl=en",
+        "cites_id": "5539718786763612516"
+      },
+      "year": "2021"
+    },
+    {
+      "title": "Autophagy and Female Fertility: Mechanisms, Clinical Implications, and Emerging Therapies",
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=l2q048wAAAAJ&citation_for_view=l2q048wAAAAJ:RGFaLdJalmkC",
+      "citation_id": "l2q048wAAAAJ:RGFaLdJalmkC",
+      "authors": "AH Harrath, MA Rahman, SK Bhajan, AK Bishwas, MDH Rahman, ...",
+      "publication": "Cells 13 (16), 1354, 2024",
+      "cited_by": {
+        "value": 37,
+        "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=9871285983421831793",
+        "serpapi_link": "https://serpapi.com/search.json?cites=9871285983421831793&engine=google_scholar&hl=en",
+        "cites_id": "9871285983421831793"
+      },
+      "year": "2024"
+    },
+    {
+      "title": "Insights into the Transmission, Host Range, Genomics, Vaccination, and Current Epidemiology of the Monkeypox Virus",
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=l2q048wAAAAJ&citation_for_view=l2q048wAAAAJ:NaGl4SEjCO4C",
+      "citation_id": "l2q048wAAAAJ:NaGl4SEjCO4C",
+      "authors": "Y Araf, JF Nipa, S Naher, ST Maliha, H Rahman, KI Arafat, MR Munif, ...",
+      "publication": "Veterinary Medicine International 2024 (1), 8839830, 2024",
+      "cited_by": {
+        "value": 37,
+        "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=7775452328296307615",
+        "serpapi_link": "https://serpapi.com/search.json?cites=7775452328296307615&engine=google_scholar&hl=en",
+        "cites_id": "7775452328296307615"
+      },
+      "year": "2024"
+    },
+    {
+      "title": "Dietary carbohydrates: Pathogenesis and potential therapeutic targets to obesity‐associated metabolic syndrome",
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=l2q048wAAAAJ&citation_for_view=l2q048wAAAAJ:BqipwSGYUEgC",
+      "citation_id": "l2q048wAAAAJ:BqipwSGYUEgC",
+      "authors": "S Akter, H Akhter, HS Chaudhury, MDH Rahman, A Gorski, MN Hasan, ...",
+      "publication": "BioFactors 48 (5), 1036-1059, 2022",
+      "cited_by": {
+        "value": 36,
+        "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5143547992210325172",
+        "serpapi_link": "https://serpapi.com/search.json?cites=5143547992210325172&engine=google_scholar&hl=en",
+        "cites_id": "5143547992210325172"
+      },
+      "year": "2022"
+    },
+    {
+      "title": "Curcumin analogs as the inhibitors of TLR4 pathway in inflammation and their drug like potentialities: a computer-based study",
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=l2q048wAAAAJ&citation_for_view=l2q048wAAAAJ:Se3iqnhoufwC",
+      "citation_id": "l2q048wAAAAJ:Se3iqnhoufwC",
+      "authors": "MA Ullah, FT Johora, B Sarkar, Y Araf, MDH Rahman",
+      "publication": "Journal of Receptors and Signal Transduction 40 (4), 324-338, 2020",
+      "cited_by": {
+        "value": 36,
+        "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1931795859167873302",
+        "serpapi_link": "https://serpapi.com/search.json?cites=1931795859167873302&engine=google_scholar&hl=en",
+        "cites_id": "1931795859167873302"
+      },
+      "year": "2020"
+    },
+    {
+      "title": "Autophagy Modulation in Aggresome Formation: Emerging Implications and Treatments of Alzheimer’s Disease",
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=l2q048wAAAAJ&citation_for_view=l2q048wAAAAJ:O3NaXMp0MMsC",
+      "citation_id": "l2q048wAAAAJ:O3NaXMp0MMsC",
+      "authors": "MA Rahman, MDH Rahman, ANM Mamun-Or-Rashid, H Hwang, S Chung, ...",
+      "publication": "Biomedicines 10 (5), 1027, 2022",
+      "cited_by": {
+        "value": 32,
+        "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14997036976039841594",
+        "serpapi_link": "https://serpapi.com/search.json?cites=14997036976039841594&engine=google_scholar&hl=en",
+        "cites_id": "14997036976039841594"
+      },
+      "year": "2022"
+    },
+    {
+      "title": "Designing novel epitope-based polyvalent vaccines against herpes simplex virus-1 and 2 exploiting the immunoinformatics approach",
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=l2q048wAAAAJ&citation_for_view=l2q048wAAAAJ:4TOpqqG69KYC",
+      "citation_id": "l2q048wAAAAJ:4TOpqqG69KYC",
+      "authors": "B Sarkar, MA Ullah, Y Araf, S Das, MH Rahman, AT Moin",
+      "publication": "Journal of Biomolecular Structure and Dynamics 39 (17), 6585-6605, 2021",
+      "cited_by": {
+        "value": 32,
+        "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5954873590298530186",
+        "serpapi_link": "https://serpapi.com/search.json?cites=5954873590298530186&engine=google_scholar&hl=en",
+        "cites_id": "5954873590298530186"
+      },
+      "year": "2021"
+    },
+    {
+      "title": "Potentials of curcumin against polycystic ovary syndrome: Pharmacological insights and therapeutic promises",
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=l2q048wAAAAJ&citation_for_view=l2q048wAAAAJ:lSLTfruPkqcC",
+      "citation_id": "l2q048wAAAAJ:lSLTfruPkqcC",
+      "authors": "T Akter, MS Zahan, N Nawal, MH Rahman, TN Tanjum, KI Arafat, A Moni, ...",
+      "publication": "Heliyon 9 (6), 2023",
+      "cited_by": {
+        "value": 30,
+        "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15776616881142356437",
+        "serpapi_link": "https://serpapi.com/search.json?cites=15776616881142356437&engine=google_scholar&hl=en",
+        "cites_id": "15776616881142356437"
+      },
+      "year": "2023"
+    }
+  ],
+  "cited_by": {
+    "table": [
+      {
+        "citations": {
+          "all": 1300,
+          "since_2021": 1269
+        }
+      },
+      {
+        "h_index": {
+          "all": 21,
+          "since_2021": 21
+        }
+      },
+      {
+        "i10_index": {
+          "all": 25,
+          "since_2021": 25
+        }
+      }
+    ],
+    "graph": [
+      {
+        "year": 2020,
+        "citations": 23
+      },
+      {
+        "year": 2021,
+        "citations": 60
+      },
+      {
+        "year": 2022,
+        "citations": 143
+      },
+      {
+        "year": 2023,
+        "citations": 249
+      },
+      {
+        "year": 2024,
+        "citations": 288
+      },
+      {
+        "year": 2025,
+        "citations": 398
+      },
+      {
+        "year": 2026,
+        "citations": 124
+      }
+    ]
+  },
+  "public_access": {
+    "link": "https://scholar.google.com/citations?view_op=list_mandates&hl=en&user=l2q048wAAAAJ",
+    "available": 2,
+    "not_available": 0
+  },
+  "co_authors": [
+    {
+      "name": "Md Jamal Uddin, PhD",
+      "link": "https://scholar.google.com/citations?user=xRM3xj8AAAAJ&hl=en",
+      "serpapi_link": "https://serpapi.com/search.json?author_id=xRM3xj8AAAAJ&engine=google_scholar_author&hl=en",
+      "author_id": "xRM3xj8AAAAJ",
+      "affiliations": "CEO, ABEx Bio-Research Center, Uttara, Dhaka 1230, Bangladesh",
+      "email": "Verified email at abexbio.com",
+      "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=xRM3xj8AAAAJ&citpid=3"
+    },
+    {
+      "name": "Bonglee Kim",
+      "link": "https://scholar.google.com/citations?user=RJTHlegAAAAJ&hl=en",
+      "serpapi_link": "https://serpapi.com/search.json?author_id=RJTHlegAAAAJ&engine=google_scholar_author&hl=en",
+      "author_id": "RJTHlegAAAAJ",
+      "affiliations": "College of Korea Medicine, Kyung Hee University",
+      "email": "Verified email at khu.ac.kr",
+      "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=RJTHlegAAAAJ&citpid=1"
+    },
+    {
+      "name": "Professor Dr. Md. Abdul Hannan",
+      "link": "https://scholar.google.com/citations?user=ninVoo0AAAAJ&hl=en",
+      "serpapi_link": "https://serpapi.com/search.json?author_id=ninVoo0AAAAJ&engine=google_scholar_author&hl=en",
+      "author_id": "ninVoo0AAAAJ",
+      "affiliations": "Department of Biochemistry and Molecular Biology, Bangladesh Agricultural University",
+      "email": "Verified email at bau.edu.bd",
+      "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=ninVoo0AAAAJ&citpid=4"
+    },
+    {
+      "name": "Dr. Rokibul Islam (Brain pool, Postdoct...",
+      "link": "https://scholar.google.com/citations?user=qx3F-yYAAAAJ&hl=en",
+      "serpapi_link": "https://serpapi.com/search.json?author_id=qx3F-yYAAAAJ&engine=google_scholar_author&hl=en",
+      "author_id": "qx3F-yYAAAAJ",
+      "affiliations": "Faculty, Department of Biotechnology & Genetic Engineering, Islamic University, Kushtia, Bangladesh",
+      "email": "Verified email at btge.iu.ac.bd",
+      "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=qx3F-yYAAAAJ&citpid=2"
+    },
+    {
+      "name": "Md. Asad Ullah",
+      "link": "https://scholar.google.com/citations?user=b191Ut8AAAAJ&hl=en",
+      "serpapi_link": "https://serpapi.com/search.json?author_id=b191Ut8AAAAJ&engine=google_scholar_author&hl=en",
+      "author_id": "b191Ut8AAAAJ",
+      "affiliations": "Graduate Student at Moffitt Cancer Center",
+      "email": "Verified email at moffitt.org",
+      "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=b191Ut8AAAAJ&citpid=3"
+    },
+    {
+      "name": "Bishajit Sarkar",
+      "link": "https://scholar.google.com/citations?user=CLYRNR4AAAAJ&hl=en",
+      "serpapi_link": "https://serpapi.com/search.json?author_id=CLYRNR4AAAAJ&engine=google_scholar_author&hl=en",
+      "author_id": "CLYRNR4AAAAJ",
+      "affiliations": "University of Connecticut Health Center",
+      "email": "Verified email at uchc.edu",
+      "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=CLYRNR4AAAAJ&citpid=1"
+    },
+    {
+      "name": "Hongik Hwang",
+      "link": "https://scholar.google.com/citations?user=OH48dYoAAAAJ&hl=en",
+      "serpapi_link": "https://serpapi.com/search.json?author_id=OH48dYoAAAAJ&engine=google_scholar_author&hl=en",
+      "author_id": "OH48dYoAAAAJ",
+      "affiliations": "Massachusetts Institute of Technology",
+      "email": "Verified email at mit.edu",
+      "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=OH48dYoAAAAJ&citpid=8"
+    },
+    {
+      "name": "Abdullah Al Mamun Sohag",
+      "link": "https://scholar.google.com/citations?user=WCBn6WwAAAAJ&hl=en",
+      "serpapi_link": "https://serpapi.com/search.json?author_id=WCBn6WwAAAAJ&engine=google_scholar_author&hl=en",
+      "author_id": "WCBn6WwAAAAJ",
+      "affiliations": "RMIT University",
+      "email": "Verified email at bau.edu.bd",
+      "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=WCBn6WwAAAAJ&citpid=2"
+    },
+    {
+      "name": "Prof. Dr. Md. Nazmul Hasan",
+      "link": "https://scholar.google.com/citations?user=SP1f9JEAAAAJ&hl=en",
+      "serpapi_link": "https://serpapi.com/search.json?author_id=SP1f9JEAAAAJ&engine=google_scholar_author&hl=en",
+      "author_id": "SP1f9JEAAAAJ",
+      "affiliations": "Jashore University of Science and Technology, Bangladesh",
+      "email": "Verified email at just.edu.bd",
+      "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=SP1f9JEAAAAJ&citpid=8"
+    },
+    {
+      "name": "Md. Sarwar Zahan",
+      "link": "https://scholar.google.com/citations?user=qMMC-30AAAAJ&hl=en",
+      "serpapi_link": "https://serpapi.com/search.json?author_id=qMMC-30AAAAJ&engine=google_scholar_author&hl=en",
+      "author_id": "qMMC-30AAAAJ",
+      "affiliations": "Research Associate at ABEx Bio-Research Center",
+      "email": "Verified email at bsmrstu.edu.bd",
+      "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=qMMC-30AAAAJ&citpid=2"
+    },
+    {
+      "name": "Akhi Moni, PhD",
+      "link": "https://scholar.google.com/citations?user=7dL9CFIAAAAJ&hl=en",
+      "serpapi_link": "https://serpapi.com/search.json?author_id=7dL9CFIAAAAJ&engine=google_scholar_author&hl=en",
+      "author_id": "7dL9CFIAAAAJ",
+      "affiliations": "ABEx Bio-Research Center",
+      "email": "Verified email at abexbio.com",
+      "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=7dL9CFIAAAAJ&citpid=2"
+    },
+    {
+      "name": "Raju Dash, Ph.D.",
+      "link": "https://scholar.google.com/citations?user=CwGMzPcAAAAJ&hl=en",
+      "serpapi_link": "https://serpapi.com/search.json?author_id=CwGMzPcAAAAJ&engine=google_scholar_author&hl=en",
+      "author_id": "CwGMzPcAAAAJ",
+      "affiliations": "InnoCORE AI-CRED Research Fellow @KAIST, Post-Doctoral Researcher @DGIST, South Korea",
+      "email": "Verified email at dgist.ac.kr",
+      "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=CwGMzPcAAAAJ&citpid=9"
+    },
+    {
+      "name": "Mahmudul Hasan Sikder",
+      "link": "https://scholar.google.com/citations?user=cdX4nNgAAAAJ&hl=en",
+      "serpapi_link": "https://serpapi.com/search.json?author_id=cdX4nNgAAAAJ&engine=google_scholar_author&hl=en",
+      "author_id": "cdX4nNgAAAAJ",
+      "affiliations": "Professor of Pharmacology, Bangladesh Agricultural Univeristy",
+      "email": "Verified email at bau.edu.bd",
+      "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=cdX4nNgAAAAJ&citpid=1"
+    },
+    {
+      "name": "Md.Tahjib-Ul-Arif, PhD",
+      "link": "https://scholar.google.com/citations?user=xBLq2-QAAAAJ&hl=en",
+      "serpapi_link": "https://serpapi.com/search.json?author_id=xBLq2-QAAAAJ&engine=google_scholar_author&hl=en",
+      "author_id": "xBLq2-QAAAAJ",
+      "affiliations": "Associate Professor, Department of Biochemistry and Molecular Biology",
+      "email": "Verified email at bau.edu.bd",
+      "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=xBLq2-QAAAAJ&citpid=2"
+    },
+    {
+      "name": "Tofazzal Islam",
+      "link": "https://scholar.google.com/citations?user=kfsgZf0AAAAJ&hl=en",
+      "serpapi_link": "https://serpapi.com/search.json?author_id=kfsgZf0AAAAJ&engine=google_scholar_author&hl=en",
+      "author_id": "kfsgZf0AAAAJ",
+      "affiliations": "Gazipur Agricultural University",
+      "email": "Verified email at bsmrau.edu.bd",
+      "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=kfsgZf0AAAAJ&citpid=10"
+    },
+    {
+      "name": "Fatema Tuz Johora",
+      "link": "https://scholar.google.com/citations?user=rliH7oAAAAAJ&hl=en",
+      "serpapi_link": "https://serpapi.com/search.json?author_id=rliH7oAAAAAJ&engine=google_scholar_author&hl=en",
+      "author_id": "rliH7oAAAAAJ",
+      "affiliations": "Msc in Biotechnology ( Cell Biology)",
+      "email": "Verified email at b-tu.de",
+      "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=rliH7oAAAAAJ&citpid=4"
+    },
+    {
+      "name": "Md Shahadat Hossain",
+      "link": "https://scholar.google.com/citations?user=k357vXMAAAAJ&hl=en",
+      "serpapi_link": "https://serpapi.com/search.json?author_id=k357vXMAAAAJ&engine=google_scholar_author&hl=en",
+      "author_id": "k357vXMAAAAJ",
+      "affiliations": "Bioinformatics Ph.D. student at Boston University",
+      "email": "Verified email at bu.edu",
+      "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=k357vXMAAAAJ&citpid=4"
+    },
+    {
+      "name": "Hiya Islam",
+      "link": "https://scholar.google.com/citations?user=W45VgskAAAAJ&hl=en",
+      "serpapi_link": "https://serpapi.com/search.json?author_id=W45VgskAAAAJ&engine=google_scholar_author&hl=en",
+      "author_id": "W45VgskAAAAJ",
+      "affiliations": "Brac University",
+      "email": "Verified email at g.bracu.ac.bd",
+      "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=W45VgskAAAAJ&citpid=7"
+    },
+    {
+      "name": "Subyeta Binte Sarwar",
+      "link": "https://scholar.google.com/citations?user=JOO7tEkAAAAJ&hl=en",
+      "serpapi_link": "https://serpapi.com/search.json?author_id=JOO7tEkAAAAJ&engine=google_scholar_author&hl=en",
+      "author_id": "JOO7tEkAAAAJ",
+      "affiliations": "Brac University",
+      "email": "Verified email at g.bracu.ac.bd",
+      "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=JOO7tEkAAAAJ&citpid=1"
+    },
+    {
+      "name": "Kazi Ahsan Ahmed",
+      "link": "https://scholar.google.com/citations?user=LWyj8gQAAAAJ&hl=en",
+      "serpapi_link": "https://serpapi.com/search.json?author_id=LWyj8gQAAAAJ&engine=google_scholar_author&hl=en",
+      "author_id": "LWyj8gQAAAAJ",
+      "affiliations": "Dept. of Biochemistry and Molecular Biology, Bangladesh Agricultural University",
+      "email": "Verified email at bau.edu.bd",
+      "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=LWyj8gQAAAAJ&citpid=6"
+    }
+  ],
+  "serpapi_pagination": {
+    "next": "https://serpapi.com/search.json?author_id=l2q048wAAAAJ&engine=google_scholar_author&hl=en&start=20"
+  }
+}

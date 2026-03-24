@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowIcon, ViewsIcon } from "@/components/icons";
-import { SiResearchgate, SiGithub } from "react-icons/si";
-import { RiDoubleQuotesL } from "react-icons/ri";
-import { name, about, bio, avatar } from "@/lib/info";
 import { HiOutlineArrowDownTray } from "react-icons/hi2";
+import { RiDoubleQuotesL } from "react-icons/ri";
+import { SiGithub, SiResearchgate } from "react-icons/si";
+import { ArrowIcon, ViewsIcon } from "@/components/icons";
+import { about, avatar, bio, name } from "@/lib/info";
 import { getBlogViews } from "@/lib/metrics";
+import { getScholarStats } from "@/lib/scholar-stats";
 
 export const revalidate = 10;
 
@@ -35,66 +36,69 @@ async function getGitHubContributions() {
 export default async function Home() {
   let views = 0;
   let githubContributions = 0;
+  let scholarCitations = 0;
 
   try {
-    const [blogViews, githubData] = await Promise.all([
+    const [blogViews, githubData, scholarStats] = await Promise.all([
       getBlogViews(),
       getGitHubContributions(),
+      getScholarStats(),
     ]);
     views = blogViews ?? 0;
     githubContributions = githubData;
+    scholarCitations = scholarStats.citations;
   } catch (error) {
     console.error("Error fetching data:", error);
   }
 
   return (
     <section>
-      <h1 className="font-bold text-3xl font-serif">{name}</h1>
+      <h1 className="font-bold font-serif text-3xl">{name}</h1>
       <p className="my-5 text-neutral-800 dark:text-neutral-200">{about()}</p>
-      <div className="flex items-start md:items-center my-8 flex-col md:flex-row">
+      <div className="my-8 flex flex-col items-start md:flex-row md:items-center">
         <Image
           alt={`${name} - Professional Portrait`}
           className="rounded-full grayscale"
-          src={avatar}
           placeholder="blur"
-          width={100}
           priority
+          src={avatar}
+          width={100}
         />
-        <div className="mt-8 md:mt-0 ml-0 md:ml-6 space-y-2 text-neutral-500 dark:text-neutral-400">
+        <div className="mt-8 ml-0 space-y-2 text-neutral-500 md:mt-0 md:ml-6 dark:text-neutral-400">
           <a
+            className="flex items-center gap-2"
+            href="https://scholar.google.com/citations?hl=en&authuser=1&user=l2q048wAAAAJ"
             rel="noopener noreferrer"
             target="_blank"
-            href="https://scholar.google.com/citations?hl=en&authuser=1&user=l2q048wAAAAJ"
-            className="flex items-center gap-2"
             title="Google Scholar Profile - MD. Hasanur Rahman"
           >
             <RiDoubleQuotesL />
-            {` 1002 citations all time`}
+            {` ${scholarCitations.toLocaleString()} citations all time`}
           </a>
 
           <a
+            className="flex items-center gap-2"
+            href="https://www.researchgate.net/profile/Md-Rahman-262"
             rel="noopener noreferrer"
             target="_blank"
-            href="https://www.researchgate.net/profile/Md-Rahman-262"
-            className="flex items-center gap-2"
             title="ResearchGate Profile - Hasanur Rahman"
           >
             <SiResearchgate />
-            {` 15,191 reads on researchgate`}
+            {" 15,191 reads on researchgate"}
           </a>
 
           <a
+            className="flex items-center gap-2"
+            href="https://github.com/hasanur-rahman079"
             rel="noopener noreferrer"
             target="_blank"
-            href="https://github.com/hasanur-rahman079"
-            className="flex items-center gap-2"
             title="GitHub Profile - Hasanur Rahman"
           >
             <SiGithub />
             {` ${githubContributions.toLocaleString()} public repos on GitHub`}
           </a>
 
-          <Link href="/blog" className="flex items-center">
+          <Link className="flex items-center" href="/blog">
             <ViewsIcon />
             {`${views && views.toLocaleString()} blog views all time`}
           </Link>
@@ -102,13 +106,13 @@ export default async function Home() {
       </div>
 
       <p className="my-5 text-neutral-800 dark:text-neutral-200">{bio()}</p>
-      <ul className="flex flex-col md:flex-row mt-8 space-x-0 md:space-x-4 space-y-2 md:space-y-0 font-sm text-neutral-500 dark:text-neutral-400">
+      <ul className="mt-8 flex flex-col space-x-0 space-y-2 font-sm text-neutral-500 md:flex-row md:space-x-4 md:space-y-0 dark:text-neutral-400">
         <li>
           <a
-            className="flex items-center hover:text-neutral-700 dark:hover:text-neutral-200 transition-all"
+            className="flex items-center transition-all hover:text-neutral-700 dark:hover:text-neutral-200"
+            href="https://twitter.com/hasanur069"
             rel="noopener noreferrer"
             target="_blank"
-            href="https://twitter.com/hasanur069"
             title="Follow Hasanur Rahman on Twitter"
           >
             <ArrowIcon />
@@ -117,10 +121,10 @@ export default async function Home() {
         </li>
         <li>
           <a
-            className="flex items-center hover:text-neutral-700 dark:hover:text-neutral-200 transition-all"
+            className="flex items-center transition-all hover:text-neutral-700 dark:hover:text-neutral-200"
+            href="mailto:hasanurrahman.bge@gmail.com"
             rel="noopener noreferrer"
             target="_blank"
-            href="mailto:hasanurrahman.bge@gmail.com"
             title="Contact Hasanur Rahman via Email"
           >
             <ArrowIcon />
@@ -129,10 +133,10 @@ export default async function Home() {
         </li>
         <li>
           <a
-            className="flex items-center hover:text-neutral-700 dark:hover:text-neutral-200 transition-all"
+            className="flex items-center transition-all hover:text-neutral-700 dark:hover:text-neutral-200"
+            href="https://www.linkedin.com/in/hasanur069/"
             rel="noopener noreferrer"
             target="_blank"
-            href="https://www.linkedin.com/in/hasanur069/"
             title="Connect with Hasanur Rahman on LinkedIn"
           >
             <ArrowIcon />
@@ -141,14 +145,14 @@ export default async function Home() {
         </li>
         <li>
           <a
-            className="flex items-center hover:text-neutral-700 dark:hover:text-neutral-200 transition-all"
+            className="flex items-center transition-all hover:text-neutral-700 dark:hover:text-neutral-200"
+            href="/cv_hasanur.pdf"
             rel="noopener noreferrer"
             target="_blank"
-            href="/cv_hasanur.pdf"
             title="Download Hasanur Rahman's CV"
           >
             <HiOutlineArrowDownTray />
-            <p className="h-7 ml-1">download my cv</p>
+            <p className="ml-1 h-7">download my cv</p>
           </a>
         </li>
       </ul>

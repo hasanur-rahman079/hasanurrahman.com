@@ -19,7 +19,7 @@ export async function GET(
     .eq("slug", slug)
     .single();
 
-  if (error) {
+  if (error && error.code !== "PGRST116") {
     return NextResponse.json({ message: error.message }, { status: 500 });
   }
 
@@ -41,7 +41,7 @@ export async function POST(
     .eq("slug", slug)
     .single();
 
-  if (error) {
+  if (error && error.code !== "PGRST116") {
     return NextResponse.json({ message: error.message }, { status: 500 });
   }
 

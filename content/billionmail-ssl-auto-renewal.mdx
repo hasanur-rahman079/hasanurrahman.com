@@ -1,0 +1,260 @@
+---
+title: "Auto-Renewing SSL for Self-Hosted BillionMail: The Complete Guide"
+publishedAt: "2026-03-24"
+summary: "A complete guide to setting up auto-renewing SSL certificates for a self-hosted BillionMail server, covering common pitfalls and step-by-step solutions."
+---
+
+
+Setting up SSL for a self-hosted mail server sounds simple — until you hit the wall of expired certificates, unsupported DNS plugins, and cryptic API errors if you install it in self hosted Platform as a Service (PaaS) Coolify and Dokploy. This is the story of what went wrong and exactly how we fixed it, so you don't have to suffer through the same journey.
+
+## The Setup
+
+- **Mail Server:** BillionMail v4.8.0 on a VPS (`xx.xx.xxx.x`)
+- **Domains:** `yourdomain.com` (DNS managed by Hostinger)
+- **BillionMail panel:** `mailserver.yourdomain.com`
+- **Goal:** Valid, publicly trusted, auto-renewing SSL certificate
+
+---
+
+## Problem 1: Cloudflare Wildcard Certificates Don't Cover Deep Subdomains
+
+The first instinct was to use a Cloudflare Origin Certificate with `*.yourdomain.com`. This works great for single-level subdomains like `news.yourdomain.com`, but BillionMail automatically prepends `mail.` to whatever domain you add. So adding `news.yourdomain.com` creates the actual hostname `mail.news.yourdomain.com` — two levels deep.
+
+Cloudflare wildcards only cover one level. The error in Listmonk was immediate:
+
+```
+tls: failed to verify certificate: x509: certificate is valid for
+*.yourdomain.com, yourdomain.com, not mail.news.yourdomain.com
+```
+
+Creating a specific Cloudflare Origin Certificate for `mail.yourdomain.com` exactly resolved the hostname mismatch but introduced a worse problem:
+
+```
+tls: failed to verify certificate: x509: certificate signed by unknown authority
+```
+
+**Why?** Cloudflare Origin Certificates are signed by Cloudflare's own CA, which is not in the public trust store. They work for HTTPS web traffic because Cloudflare proxies the connection — but for direct SMTP connections from mail clients or other servers, there is no proxy. The client checks against public CAs and fails.
+
+**Rule:** Never use Cloudflare Origin Certificates for mail server hostnames. Use them only for web-facing hostnames that are proxied through Cloudflare.
+
+---
+
+## Problem 2: BillionMail's "Apply Free Certificate" Button Fails
+
+Clicking the built-in free certificate button in BillionMail gave this error:
+
+```
+Failed to apply for SSL certificate: error: one or more domains had a problem:
+[mail.yourdomain.com] invalid authorization: acme: error: 403 :: unauthorized ::
+Invalid response from http://mail.yourdomain.com/.well-known/acme-challenge/...: 404
+```
+
+This is an HTTP-01 challenge failure. Let's Encrypt tries to verify domain ownership by placing a file at `/.well-known/acme-challenge/` and fetching it. This fails when:
+- The A record is proxied through Cloudflare (orange cloud)
+- No web server is running on port 80
+- The domain points to a mail server, not a web server
+
+---
+
+## The Solution: acme.sh with Hostinger DNS API
+
+The DNS-01 challenge is the correct approach for mail servers — it verifies ownership by adding a TXT record instead of serving a file over HTTP. No web server needed, no port 80, no stopping services.
+
+### Step 1: Install acme.sh
+
+```bash
+curl https://get.acme.sh | sh -s email=admin@yourdomain.com
+source ~/.bashrc
+```
+
+### Step 2: The Hostinger Plugin Problem
+
+acme.sh has a `dns_hostinger` plugin documented in its wiki, but it is not yet included in the stable release. Downloading it from the master branch returns a 404 — only 14 bytes. The plugin needs to be written manually using the Hostinger API.
+
+First, find the correct Hostinger API endpoint by testing:
+
+```bash
+curl -X GET "https://developers.hostinger.com/api/dns/v1/zones/yourdomain.com" \
+  -H "Authorization: Bearer YOUR_HOSTINGER_TOKEN" \
+  -H "Content-Type: application/json"
+```
+
+This returns your DNS records, confirming the base URL is `https://developers.hostinger.com/api/dns/v1/zones`.
+
+The correct PUT request format (found by trial and error with the API error messages) is:
+
+```bash
+curl -X PUT "https://developers.hostinger.com/api/dns/v1/zones/yourdomain.com" \
+  -H "Authorization: Bearer YOUR_HOSTINGER_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"zone":[{"name":"_acme-challenge.mail","type":"TXT","records":[{"content":"testvalue","is_disabled":false}],"ttl":300}]}'
+```
+
+Response: `{"message":"Request accepted"}`
+
+### Step 3: Create the Plugin
+
+```bash
+nano ~/.acme.sh/dnsapi/dns_hostinger.sh
+```
+
+Paste this content:
+
+```bash
+#!/usr/bin/env sh
+
+HOSTINGER_API="https://developers.hostinger.com/api/dns/v1/zones"
+
+dns_hostinger_add() {
+  fulldomain=$1
+  txtvalue=$2
+
+  HOSTINGER_Token="${HOSTINGER_Token:-$(_readaccountconf_mutable HOSTINGER_Token)}"
+  if [ -z "$HOSTINGER_Token" ]; then
+    _err "HOSTINGER_Token is not set"
+    return 1
+  fi
+  _saveaccountconf_mutable HOSTINGER_Token "$HOSTINGER_Token"
+
+  # Extract root domain (last two parts e.g. yourdomain.com)
+  _domain=$(printf "%s" "$fulldomain" | rev | cut -d. -f1-2 | rev)
+  _sub_domain=$(printf "%s" "$fulldomain" | rev | cut -d. -f3- | rev)
+
+  _info "Zone: $_domain  Subdomain: $_sub_domain"
+
+  data="{\"zone\":[{\"name\":\"$_sub_domain\",\"type\":\"TXT\",\"records\":[{\"content\":\"$txtvalue\",\"is_disabled\":false}],\"ttl\":300}]}"
+
+  export _H1="Authorization: Bearer $HOSTINGER_Token"
+  export _H2="Content-Type: application/json"
+  response=$(_post "$data" "$HOSTINGER_API/$_domain" "" "PUT")
+
+  if _contains "$response" "accepted"; then
+    _info "TXT record added successfully"
+    return 0
+  fi
+  _err "Failed: $response"
+  return 1
+}
+
+dns_hostinger_rm() {
+  fulldomain=$1
+  txtvalue=$2
+  HOSTINGER_Token="${HOSTINGER_Token:-$(_readaccountconf_mutable HOSTINGER_Token)}"
+  _domain=$(printf "%s" "$fulldomain" | rev | cut -d. -f1-2 | rev)
+  _sub_domain=$(printf "%s" "$fulldomain" | rev | cut -d. -f3- | rev)
+  data="{\"records\":[{\"type\":\"TXT\",\"name\":\"$_sub_domain\"}]}"
+  export _H1="Authorization: Bearer $HOSTINGER_Token"
+  export _H2="Content-Type: application/json"
+  _post "$data" "$HOSTINGER_API/$_domain" "" "DELETE"
+  return 0
+}
+```
+
+Make it executable:
+
+```bash
+chmod +x ~/.acme.sh/dnsapi/dns_hostinger.sh
+```
+
+### Step 4: Get Your Hostinger API Token
+
+1. Log in to **hpanel.hostinger.com**
+2. Click profile icon → **Account Information**
+3. Go to **API** in the sidebar
+4. Click **Generate token** or **New token**
+5. Copy the token — it is shown only once
+
+### Step 5: Issue the Certificate
+
+```bash
+export HOSTINGER_Token="YOUR_HOSTINGER_TOKEN"
+
+~/.acme.sh/acme.sh --issue --dns dns_hostinger \
+  -d mail.yourdomain.com \
+  --server letsencrypt
+```
+
+Successful output:
+
+```
+[✓] Your cert is in: /root/.acme.sh/mail.yourdomain.com_ecc/mail.yourdomain.com.cer
+[✓] Your cert key is in: /root/.acme.sh/mail.yourdomain.com_ecc/mail.yourdomain.com.key
+[✓] The full-chain cert is in: /root/.acme.sh/mail.yourdomain.com_ecc/fullchain.cer
+```
+
+### Step 6: Install to a Fixed Path
+
+```bash
+mkdir -p /etc/ssl/mail.yourdomain.com
+
+~/.acme.sh/acme.sh --install-cert -d mail.yourdomain.com \
+  --cert-file /etc/ssl/mail.yourdomain.com/cert.pem \
+  --key-file /etc/ssl/mail.yourdomain.com/privkey.pem \
+  --fullchain-file /etc/ssl/mail.yourdomain.com/fullchain.pem
+```
+
+### Step 7: Paste into BillionMail
+
+```bash
+cat /etc/ssl/mail.yourdomain.com/fullchain.pem
+cat /etc/ssl/mail.yourdomain.com/privkey.pem
+```
+
+Go to BillionMail → **Domain** → **SSL** → paste `fullchain.pem` into Certificate field and `privkey.pem` into Private Key field → **Save**.
+
+---
+
+## Auto-Renewal
+
+acme.sh automatically creates a cron job during installation. Verify it exists:
+
+```bash
+crontab -l | grep acme
+```
+
+Expected output:
+```
+32 5 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null
+```
+
+This runs daily, checks if any certificate is due for renewal (within 30 days of expiry), and renews automatically. You never need to touch it again.
+
+---
+
+## Key Lessons
+
+**1. Never use Cloudflare Origin Certificates for SMTP hostnames.**
+They are only trusted by Cloudflare's proxy — not by public mail clients or servers.
+
+**2. HTTP-01 challenge does not work for mail servers.**
+Use DNS-01 challenge instead. It requires no web server, no port 80, and no stopping services.
+
+**3. The dns_hostinger plugin is not in the acme.sh stable release yet.**
+You need to create it manually. The working plugin is provided above.
+
+**4. The correct Hostinger API format for creating DNS records is:**
+```json
+{
+  "zone": [{
+    "name": "_acme-challenge.subdomain",
+    "type": "TXT",
+    "records": [{"content": "value", "is_disabled": false}],
+    "ttl": 300
+  }]
+}
+```
+
+**5. BillionMail prepends `mail.` to your sending domain.**
+Adding `news.yourdomain.com` creates the hostname `mail.news.yourdomain.com`. Your certificate must cover this exact hostname.
+
+---
+
+## SSL Method Comparison
+
+| Method | Covers deep subdomains | Publicly trusted | Auto-renews |
+|--------|----------------------|------------------|-------------|
+| Cloudflare wildcard | ❌ | ❌ | ✅ |
+| Cloudflare Origin (specific) | ✅ | ❌ | ✅ |
+| acme.sh + DNS-01 | ✅ | ✅ | ✅ |
+
+For self-hosted mail servers, **acme.sh with DNS-01 challenge is the only correct approach.**

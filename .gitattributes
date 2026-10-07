@@ -1,0 +1,2 @@
+# Contentlayer parses frontmatter with gray-matter, which breaks on CRLF after a quoted value.
+content/*.mdx text eol=lf

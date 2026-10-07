@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/og";
 import { readFileSync } from "fs";
 import { join } from "path";
+import { SITE_URL } from "@/lib/site";
 
 // Load the custom font file
 const fontPath = join(
@@ -36,7 +37,7 @@ export async function GET(req: Request) {
         flexDirection: "column",
         alignItems: "flex-start",
         justifyContent: "center",
-        backgroundImage: "url(https://www.hasanurrahman.me/og-bg.png)",
+        backgroundImage: `url(${SITE_URL}/og-bg.png)`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}

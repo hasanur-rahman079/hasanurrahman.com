@@ -1,8 +1,32 @@
+import type { Metadata } from "next";
+import { absoluteUrl, PERSON_ID, pageMetadata, WEBSITE_ID } from "@/lib/site";
 import { HiOutlineArrowDownTray } from "react-icons/hi2";
+
+export const metadata: Metadata = pageMetadata({
+  title: "About",
+  description:
+    "MD. Hasanur Rahman is a bioinformatics researcher at Bangladesh Agricultural University studying cancer genomics and Alzheimer's therapeutics.",
+  path: "/about",
+});
+
+const profileSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "@id": `${absoluteUrl("/about")}#profile`,
+  url: absoluteUrl("/about"),
+  name: "About MD. Hasanur Rahman",
+  isPartOf: { "@id": WEBSITE_ID },
+  mainEntity: { "@id": PERSON_ID },
+};
 
 export default function AboutPage() {
   return (
     <section>
+      <script
+        type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: static JSON-LD
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(profileSchema) }}
+      />
       {/* Intro Section */}
       <h1 className="font-bold text-3xl font-serif">About Me</h1>
       <p className="my-5 text-neutral-700 dark:text-neutral-300">
@@ -44,9 +68,9 @@ export default function AboutPage() {
       <br />
 
       {/* Current Employment Section */}
-      <h3 className="font-bold text-xl font-serif" id="academic_life">
+      <h2 className="font-bold text-xl font-serif" id="academic_life">
         Current Employment
-      </h3>
+      </h2>
       <hr />
       <p className="my-5 text-neutral-700 dark:text-neutral-300">
         After completing a research assistant role at Dr. Bonglee Kim’s lab at
@@ -63,9 +87,9 @@ export default function AboutPage() {
       <br />
 
       {/* Achievements Section */}
-      <h3 className="font-bold text-xl font-serif" id="achievements">
+      <h2 className="font-bold text-xl font-serif" id="achievements">
         Achievements
-      </h3>
+      </h2>
       <hr />
       <p className="text-neutral-700 dark:text-neutral-300 mt-2 mb-8">
         Here's some of my notable accomplishments from the little contributions

@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import { SiGithub } from "react-icons/si";
 import GitHubContributionsChart from "@/components/github-contributions-chart";
+import { pageMetadata } from "@/lib/site";
 import { getContributions, getTotalContributions } from "@/server/github";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Dev",
-  description: "Besides research, I also code.",
-};
+  description:
+    "Besides research, I build web apps and bioinformatics tools. Tech stack, highlighted projects and GitHub activity of MD. Hasanur Rahman.",
+  path: "/dev",
+});
 
 export default async function DeveloperPage() {
   const year = new Date().getFullYear();
@@ -58,7 +61,9 @@ export default async function DeveloperPage() {
       </div>
 
       <div className="prose prose-neutral dark:prose-invert mt-12">
-        <h3 id="tech-stack">Tech Stack</h3>
+        <h2 className="text-xl" id="tech-stack">
+          Tech Stack
+        </h2>
         <ul>
           <li>Node.js (Express, Honojs)</li>
           <li>Python (FastApi, Django)</li>
@@ -67,7 +72,9 @@ export default async function DeveloperPage() {
           <li>Tools: Git, Docker</li>
         </ul>
 
-        <h3 id="hardware">Highlighted Projects</h3>
+        <h2 className="text-xl" id="projects">
+          Highlighted Projects
+        </h2>
         <ul>
           <li>
             <a

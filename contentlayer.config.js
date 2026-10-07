@@ -11,25 +11,6 @@ const computedFields = {
     type: "string",
     resolve: (doc) => doc._raw.flattenedPath,
   },
-  // structuredData: {
-  //   type: "object",
-  //   resolve: (doc) => ({
-  //     "@context": "https://schema.org",
-  //     "@type": "BlogPosting",
-  //     headline: doc.title,
-  //     datePublished: doc.publishedAt,
-  //     dateModified: doc.publishedAt,
-  //     description: doc.summary,
-  //     image: doc.image
-  //       ? `https://hasanurrahman.com${doc.image}`
-  //       : `https://hasanurrahman.com/api/og?title=${doc.title}`,
-  //     url: `https://hasanurrahman.com/blog/${doc._raw.flattenedPath}`,
-  //     author: {
-  //       "@type": "Person",
-  //       name: "MD. Hasanur Rahman",
-  //     },
-  //   }),
-  // },
 };
 
 export const Blog = defineDocumentType(() => ({

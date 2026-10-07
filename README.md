@@ -1,6 +1,6 @@
 # hasanurrahman.com
 
-Personal portfolio and academic website of [MD. Hasanur Rahman](https://www.hasanurrahman.me) — researcher, developer, and entrepreneur.
+Personal portfolio and academic website of [MD. Hasanur Rahman](https://www.hasanur.site) — researcher, developer, and entrepreneur.
 
 Built with Next.js 16 App Router. Feel free to fork and adapt it for your own portfolio.
 

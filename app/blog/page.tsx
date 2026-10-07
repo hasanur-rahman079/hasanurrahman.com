@@ -1,13 +1,15 @@
 import { allBlogs } from "contentlayer/generated";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata } from "@/lib/site";
 import ViewCounter from "./view-counter";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Blog",
   description:
-    "Read my thoughts and documentation on bioinformatics, software development, design, and more.",
-};
+    "Notes and guides by MD. Hasanur Rahman on bioinformatics, molecular simulation, software development and conference experiences.",
+  path: "/blog",
+});
 
 export default async function BlogPage() {
   return (

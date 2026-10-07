@@ -4,6 +4,16 @@ import "./globals.css";
 import clsx from "clsx";
 import Sidebar from "@/components/sidebar";
 import { Analytics } from "@vercel/analytics/react";
+import {
+  DEFAULT_DESCRIPTION,
+  DEFAULT_TITLE,
+  OG_IMAGE,
+  PERSON_ID,
+  SAME_AS,
+  SITE_NAME,
+  SITE_URL,
+  WEBSITE_ID,
+} from "@/lib/site";
 
 const chivo = Chivo({
   subsets: ["latin"],
@@ -13,46 +23,21 @@ const chivo = Chivo({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "MD. Hasanur Rahman - Researcher, Developer & Entrepreneur",
+    default: DEFAULT_TITLE,
     template: "%s | MD. Hasanur Rahman",
   },
-  description:
-    "MD. Hasanur Rahman (Hasanur) is a distinguished researcher, developer, and entrepreneur. Explore his research publications, bioinformatics work, and professional achievements.",
-  keywords: [
-    "MD. Hasanur Rahman",
-    "Hasanur Rahman",
-    "Hasanur",
-    "Hasan",
-    "Md. Hasanur Rahman",
-    "researcher",
-    "developer",
-    "entrepreneur",
-    "bioinformatics",
-    "scholar",
-    "academic",
-    "Bangladesh",
-    "research publications",
-    "Google Scholar",
-    "ResearchGate",
-  ],
-  authors: [{ name: "MD. Hasanur Rahman" }],
-  creator: "MD. Hasanur Rahman",
-  publisher: "MD. Hasanur Rahman",
+  description: DEFAULT_DESCRIPTION,
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
   openGraph: {
-    title: "MD. Hasanur Rahman - Researcher, Developer & Entrepreneur",
-    description:
-      "MD. Hasanur Rahman (Hasanur) is a distinguished researcher, developer, and entrepreneur. Explore his research publications, bioinformatics work, and professional achievements.",
-    url: "https://www.hasanurrahman.me",
-    siteName: "MD. Hasanur Rahman",
-    images: [
-      {
-        url: "https://www.hasanurrahman.me/og.jpg",
-        width: 1920,
-        height: 1080,
-        alt: "MD. Hasanur Rahman - Professional Portrait",
-      },
-    ],
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    images: [OG_IMAGE],
     locale: "en-US",
     type: "website",
   },
@@ -68,11 +53,11 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: "MD. Hasanur Rahman - Researcher, Developer & Entrepreneur",
-    description:
-      "MD. Hasanur Rahman (Hasanur) is a distinguished researcher, developer, and entrepreneur.",
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
     card: "summary_large_image",
     creator: "@hasanur069",
+    images: [OG_IMAGE.url],
   },
   icons: {
     shortcut: "/favicon.ico",
@@ -81,10 +66,11 @@ export const metadata: Metadata = {
     google: "eZSdmzAXlLkKhNJzfgwDqWORghxnJ8qR9_CHdAh5-xw",
     yandex: "137AE967403A67845F3F1C204E322FC8",
   },
+  // Every page sets its own canonical via `alternates`; this is only the
+  // fallback for the homepage.
   alternates: {
-    canonical: "https://www.hasanurrahman.me",
+    canonical: "/",
   },
-  category: "Personal Website",
 };
 
 export default function RootLayout({
@@ -94,35 +80,47 @@ export default function RootLayout({
 }>) {
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Person",
-    name: "MD. Hasanur Rahman",
-    alternateName: ["Hasanur Rahman", "Hasanur", "Hasan"],
-    url: "https://www.hasanurrahman.me",
-    image: "https://www.hasanurrahman.me/avatar.jpg",
-    sameAs: [
-      "https://scholar.google.com/citations?hl=en&authuser=1&user=l2q048wAAAAJ",
-      "https://www.researchgate.net/profile/Md-Rahman-262",
-      "https://twitter.com/hasanur069",
-      "https://www.linkedin.com/in/hasanur069/",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": WEBSITE_ID,
+        url: SITE_URL,
+        name: SITE_NAME,
+        description: DEFAULT_DESCRIPTION,
+        inLanguage: "en",
+        publisher: { "@id": PERSON_ID },
+      },
+      {
+        "@type": "Person",
+        "@id": PERSON_ID,
+        name: SITE_NAME,
+        alternateName: ["Hasanur Rahman", "Md Hasanur Rahman", "Hasanur"],
+        url: SITE_URL,
+        image: `${SITE_URL}/avatar.jpg`,
+        sameAs: SAME_AS,
+        jobTitle: "Research Assistant",
+        worksFor: {
+          "@type": "Organization",
+          name: "Bangladesh Agricultural University",
+          url: "https://bau.edu.bd",
+        },
+        description:
+          "MD. Hasanur Rahman is a bioinformatics researcher working on cancer genomics and Alzheimer's therapeutics, and a developer based in Bangladesh.",
+        knowsAbout: [
+          "Bioinformatics",
+          "Computational Biology",
+          "Cancer Genomics",
+          "Alzheimer's Disease",
+          "Molecular Docking",
+          "Web Development",
+        ],
+        address: {
+          "@type": "PostalAddress",
+          addressCountry: "BD",
+        },
+        mainEntityOfPage: { "@id": WEBSITE_ID },
+      },
     ],
-    jobTitle: "Researcher, Developer, Entrepreneur",
-    worksFor: {
-      "@type": "Organization",
-      name: "Independent Researcher",
-    },
-    description:
-      "MD. Hasanur Rahman is a distinguished researcher, developer, and entrepreneur with expertise in bioinformatics and computational biology.",
-    knowsAbout: [
-      "Bioinformatics",
-      "Computational Biology",
-      "Research",
-      "Development",
-      "Entrepreneurship",
-    ],
-    address: {
-      "@type": "PostalAddress",
-      addressCountry: "BD",
-    },
   };
 
   return (
@@ -133,11 +131,6 @@ export default function RootLayout({
         chivo.variable
       )}
     >
-      <head>
-        <meta name="author" content="MD. Hasanur Rahman" />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://www.hasanurrahman.me" />
-      </head>
       <body className="antialiased max-w-4xl mb-40 flex flex-col md:flex-row mx-4 mt-8 md:mt-20 lg:mt-32 lg:mx-auto">
         <script
           type="application/ld+json"

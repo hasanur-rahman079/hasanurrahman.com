@@ -4,13 +4,16 @@ import { BsArrowUpRight, BsInfoCircle } from "react-icons/bs";
 import Publications from "@/components/researchPage/all-publications";
 import ResearchImpacts from "@/components/researchPage/research-impacts";
 import { getScholarStats } from "@/lib/scholar-stats";
+import { pageMetadata } from "@/lib/site";
 
 export const revalidate = 86_400;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Research",
-  description: "Here's what research I've published so far",
-};
+  description:
+    "Peer-reviewed publications and citation metrics of MD. Hasanur Rahman in bioinformatics, cancer genomics and computational drug discovery.",
+  path: "/research",
+});
 
 export default async function ResearchPage() {
   const [allPub, scholarStats] = await Promise.all([

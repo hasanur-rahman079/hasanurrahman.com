@@ -2,28 +2,14 @@ import React from "react";
 import PhotoGallery from "components/photoGallery";
 import { Metadata } from "next";
 import { v2 as cloudinary } from "cloudinary";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Gallery - MD. Hasanur Rahman",
+export const metadata: Metadata = pageMetadata({
+  title: "Gallery",
   description:
-    "Capturing Memorable Moments: Conference Participants, Workshop Trainees, and Travel Adventures",
-  openGraph: {
-    title: "Gallery - MD. Hasanur Rahman",
-    description:
-      "Capturing Memorable Moments: Conference Participants, Workshop Trainees, and Travel Adventures",
-    url: "https://www.hasanurrahman.me/gallery",
-    siteName: "MD. Hasanur Rahman",
-    images: [
-      {
-        url: "https://www.hasanurrahman.me/og.jpg",
-        width: 1920,
-        height: 1080,
-      },
-    ],
-    locale: "en-US",
-    type: "website",
-  },
-};
+    "Photos from conferences, workshops and travel: moments from the research and speaking life of MD. Hasanur Rahman.",
+  path: "/gallery",
+});
 
 cloudinary.config({
   cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,

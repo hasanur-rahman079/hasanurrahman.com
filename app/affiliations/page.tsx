@@ -2,12 +2,14 @@ import experiencesData from "lib/dataExperience";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { parse, isValid, format } from "date-fns";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Affiliations",
   description:
-    "Here's what experiences i have gained from different institutions",
-};
+    "Education, research positions and organizational service of MD. Hasanur Rahman across universities and research labs in Bangladesh and South Korea.",
+  path: "/affiliations",
+});
 
 async function expData() {
   return experiencesData;
@@ -97,7 +99,9 @@ export default async function Affiliations() {
         Here's what experiences i have gained from different institutions
       </p>
       <div className="prose prose-neutral dark:prose-invert max-w-full">
-        <h3 id="computer-office">Education</h3>
+        <h2 className="text-xl" id="education">
+          Education
+        </h2>
         <div className="space-y-4">
           {sortedEducation.map((obj: any) => (
             <ExpCard
@@ -113,7 +117,9 @@ export default async function Affiliations() {
           ))}
         </div>
 
-        <h3 id="computer-office">Research Employment</h3>
+        <h2 className="text-xl" id="research-employment">
+          Research Employment
+        </h2>
         <div className="space-y-4">
           {sortedResearch.map((obj: any) => (
             <ExpCard
@@ -129,7 +135,9 @@ export default async function Affiliations() {
           ))}
         </div>
 
-        <h3 id="computer-office">Organizational Service</h3>
+        <h2 className="text-xl" id="organizational-service">
+          Organizational Service
+        </h2>
         <div className="space-y-4">
           {sortedOrganizations.map((obj: any) => (
             <ExpCard

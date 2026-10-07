@@ -1,8 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import { useMDXComponent } from "next-contentlayer2/hooks";
 import * as React from "react";
 import { Pre } from "./pre";
+import SkeletonImage from "./skeleton-image";
 
 const CustomLink = (props: any) => {
   const href = props.href;
@@ -23,7 +23,15 @@ const CustomLink = (props: any) => {
 };
 
 function RoundedImage(props: any) {
-  return <Image alt={props.alt} className="rounded-lg" {...props} />;
+  return (
+    <SkeletonImage
+      alt={props.alt}
+      wrapperClassName="my-8 rounded-lg"
+      sizes="(min-width: 768px) 700px, 100vw"
+      className="rounded-lg"
+      {...props}
+    />
+  );
 }
 
 function Callout(props: any) {

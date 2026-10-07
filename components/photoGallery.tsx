@@ -12,7 +12,7 @@ import "lightgallery/css/lg-transitions.css";
 // import plugins if you need
 import lgThumbnail from "lightgallery/plugins/thumbnail";
 import lgZoom from "lightgallery/plugins/zoom";
-import Image from "next/image";
+import SkeletonImage from "./skeleton-image";
 import { HiOutlineMapPin } from "react-icons/hi2";
 import GallerySkeleton from "./gallery-skeleton";
 
@@ -102,15 +102,13 @@ export default function PhotoGallery({ images }: PhotoGalleryProps) {
               href={obj.secure_url}
               data-sub-html={`${title}${description ? ` - ${description}` : ""}${location ? ` | Location: ${location}` : ""}`}
             >
-              <Image
+              <SkeletonImage
                 key={obj.asset_id}
-                width={400}
-                height={500}
-                style={{
-                  maxWidth: "100%",
-                  height: "auto",
-                }}
-                className="img-responsive rounded bg-slate-200 relative"
+                width={obj.width}
+                height={obj.height}
+                sizes="(min-width: 768px) 400px, 50vw"
+                wrapperClassName="rounded"
+                className="img-responsive rounded"
                 alt={`${title} - MD. Hasanur Rahman (Hasanur)`}
                 src={obj.secure_url}
               />

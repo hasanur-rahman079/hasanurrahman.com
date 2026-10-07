@@ -4,6 +4,7 @@ import { HiOutlineArrowDownTray } from "react-icons/hi2";
 import { RiDoubleQuotesL } from "react-icons/ri";
 import { SiGithub, SiResearchgate } from "react-icons/si";
 import { ArrowIcon, ViewsIcon } from "@/components/icons";
+import SkeletonImage from "@/components/skeleton-image";
 import { about, avatar, bio, name } from "@/lib/info";
 import { getBlogViews } from "@/lib/metrics";
 import { getScholarStats } from "@/lib/scholar-stats";
@@ -106,6 +107,38 @@ export default async function Home() {
       </div>
 
       <p className="my-5 text-neutral-800 dark:text-neutral-200">{bio()}</p>
+
+      <Link
+        className="group my-8 flex flex-col gap-4 rounded-lg border border-neutral-200 p-3 transition-all hover:border-neutral-400 sm:flex-row sm:items-center dark:border-neutral-800 dark:hover:border-neutral-600"
+        href="/blog/he-vita-2025-south-korea"
+        title="Read about my talk at HE-VITA 2025"
+      >
+        <SkeletonImage
+          alt="Receiving the Session Best Presentation certificate at HE-VITA 2025, Kyung Hee University"
+          className="rounded-md"
+          height={1200}
+          sizes="(min-width: 640px) 192px, 100vw"
+          src="/blog_images/he-vita-2025/best-session-gift.jpg"
+          width={1600}
+          wrapperClassName="rounded-md sm:w-48 sm:shrink-0"
+        />
+        <div className="space-y-1">
+          <p className="text-neutral-500 text-xs uppercase tracking-wide dark:text-neutral-400">
+            Recent
+          </p>
+          <p className="font-medium text-neutral-800 dark:text-neutral-200">
+            Session Best Presentation, HE-VITA 2025
+          </p>
+          <p className="text-neutral-500 text-sm dark:text-neutral-400">
+            International Symposium on Natural and Traditional Medicines, Kyung
+            Hee University, Seoul
+          </p>
+          <span className="flex items-center pt-1 text-neutral-500 text-sm transition-all group-hover:text-neutral-700 dark:text-neutral-400 dark:group-hover:text-neutral-200">
+            <ArrowIcon />
+            <span className="h-7">read about the trip</span>
+          </span>
+        </div>
+      </Link>
       <ul className="mt-8 flex flex-col space-x-0 space-y-2 font-sm text-neutral-500 md:flex-row md:space-x-4 md:space-y-0 dark:text-neutral-400">
         <li>
           <a
